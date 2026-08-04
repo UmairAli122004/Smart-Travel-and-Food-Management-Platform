@@ -11,6 +11,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { loginSchema } from '../../validations/authSchema';
 import { useAuth } from '../../context/AuthContext';
 import api from '../../api/axiosInstance';
+import { ENV } from '../../config/env';
 const LoginPage = () => {
   const { login } = useAuth();
   const navigate = useNavigate();
@@ -84,7 +85,7 @@ const LoginPage = () => {
             variant="outlined"
             sx={{ flex: 1, py: 1, textTransform: 'none', color: '#c62828', borderColor: '#e0e0e0', '&:hover': { backgroundColor: '#f5f5f5', borderColor: '#e0e0e0' } }}
             startIcon={<FcGoogle size={24} />}
-            onClick={() => { window.location.href = 'http://localhost:8080/oauth2/authorization/google'; }}
+            onClick={() => { window.location.href = `${ENV.API_BASE_URL}/oauth2/authorization/google`; }}
           >
             Google
           </BaseButton>

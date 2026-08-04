@@ -13,6 +13,7 @@ import axiosInstance from '../../../api/axiosInstance';
 import { RESTAURANT_API, CATEGORY_API, MENU_ITEM_API, REVIEW_API } from '../../../constants/apiEndpoints';
 import { useCart } from '../../../context/CartContext';
 import { format } from 'date-fns';
+import { ENV } from '../../../config/env';
 
 const TabPanel = (props) => {
   const { children, value, index, ...other } = props;
@@ -215,7 +216,7 @@ const RestaurantDetails = () => {
                               backgroundColor: '#000'
                             }}>
                               <img
-                                src={item.imageUrl ? `http://localhost:8080${item.imageUrl}` : 'https://via.placeholder.com/400x200?text=No+Image'}
+                                src={item.imageUrl ? `${ENV.API_BASE_URL}${item.imageUrl}` : 'https://via.placeholder.com/400x200?text=No+Image'}
                                 alt=""
                                 style={{ 
                                   position: 'absolute',
@@ -230,7 +231,7 @@ const RestaurantDetails = () => {
                                 }}
                               />
                               <img
-                                src={item.imageUrl ? `http://localhost:8080${item.imageUrl}` : 'https://via.placeholder.com/400x200?text=No+Image'}
+                                src={item.imageUrl ? `${ENV.API_BASE_URL}${item.imageUrl}` : 'https://via.placeholder.com/400x200?text=No+Image'}
                                 alt={item.menuName}
                                 style={{ 
                                   position: 'absolute',

@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 import api from '../../api/axiosInstance';
 import CreateRestaurantModal from '../../components/dashboard/vendor/CreateRestaurantModal';
 import EditRestaurantModal from '../../components/dashboard/vendor/EditRestaurantModal';
+import { ENV } from '../../config/env';
 const fetchMyRestaurants = async () => {
   const response = await api.get('/api/restaurants/vendor/my-restaurants');
   return response.data.data; 
@@ -88,7 +89,7 @@ const VendorRestaurants = () => {
           {restaurants.map((restaurant) => {
             const timestamp = restaurant.updatedAt ? new Date(restaurant.updatedAt).getTime() : Date.now();
             const imageUrl = restaurant.imageUrl 
-              ? `http://localhost:8080${restaurant.imageUrl}?t=${timestamp}` 
+              ? `${ENV.API_BASE_URL}${restaurant.imageUrl}?t=${timestamp}` 
               : 'https://via.placeholder.com/400x200?text=No+Image';
             return (
               <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={restaurant.id}>

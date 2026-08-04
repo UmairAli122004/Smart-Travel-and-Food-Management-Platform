@@ -10,6 +10,7 @@ import api from '../../../api/axiosInstance';
 import { MENU_ITEM_API } from '../../../constants/apiEndpoints';
 import MenuItemModal from '../../../components/dashboard/vendor/MenuItemModal';
 import ErrorBoundary from '../../../components/common/ErrorBoundary';
+import { ENV } from '../../../config/env';
 const fetchMenuItems = async (categoryId) => {
   const response = await api.get(`${MENU_ITEM_API.BY_CATEGORY(categoryId)}?page=0&size=100`);
   return response.data.data.content || [];
@@ -174,7 +175,7 @@ const MenuItemManagement = () => {
                     backgroundColor: '#000'
                   }}>
                     <img
-                      src={item.imageUrl ? `http://localhost:8080${item.imageUrl}` : 'https://via.placeholder.com/400x200?text=No+Image'}
+                      src={item.imageUrl ? `${ENV.API_BASE_URL}${item.imageUrl}` : 'https://via.placeholder.com/400x200?text=No+Image'}
                       alt=""
                       style={{ 
                         position: 'absolute',
@@ -189,7 +190,7 @@ const MenuItemManagement = () => {
                       }}
                     />
                     <img
-                      src={item.imageUrl ? `http://localhost:8080${item.imageUrl}` : 'https://via.placeholder.com/400x200?text=No+Image'}
+                      src={item.imageUrl ? `${ENV.API_BASE_URL}${item.imageUrl}` : 'https://via.placeholder.com/400x200?text=No+Image'}
                       alt={item.menuName}
                       style={{ 
                         position: 'absolute',

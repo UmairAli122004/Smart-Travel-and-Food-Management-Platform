@@ -27,6 +27,7 @@ import api from '../../api/axiosInstance';
 import useDebounce from '../../hooks/useDebounce';
 import SectionLoader from '../../components/dashboard/SectionLoader';
 import ErrorAlert from '../../components/dashboard/ErrorAlert';
+import { ENV } from '../../config/env';
 
 const fetchAllRestaurants = async ({ queryKey }) => {
   const [_key, page, size, sortBy, direction] = queryKey;
@@ -124,7 +125,7 @@ const AdminRestaurants = () => {
           {restaurants.map((restaurant) => {
             const timestamp = restaurant.updatedAt ? new Date(restaurant.updatedAt).getTime() : Date.now();
             const imageUrl = restaurant.imageUrl 
-              ? `http://localhost:8080${restaurant.imageUrl}?t=${timestamp}` 
+              ? `${ENV.API_BASE_URL}${restaurant.imageUrl}?t=${timestamp}` 
               : 'https://via.placeholder.com/400x200?text=No+Image';
             
             return (

@@ -5,6 +5,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useQuery } from '@tanstack/react-query';
 import api from '../../../api/axiosInstance';
 import { MENU_ITEM_API } from '../../../constants/apiEndpoints';
+import { ENV } from '../../../config/env';
 
 const fetchMenuItems = async (restaurantId) => {
   const response = await api.get(MENU_ITEM_API.BY_RESTAURANT(restaurantId));
@@ -67,7 +68,7 @@ const AdminMenuItemManagement = () => {
               {menuItems.map((item) => {
                 const timestamp = item.updatedAt ? new Date(item.updatedAt).getTime() : Date.now();
                 const imageUrl = item.imageUrl 
-                  ? `http://localhost:8080${item.imageUrl}?t=${timestamp}` 
+                  ? `${ENV.API_BASE_URL}${item.imageUrl}?t=${timestamp}` 
                   : 'https://via.placeholder.com/50';
                 
                 return (

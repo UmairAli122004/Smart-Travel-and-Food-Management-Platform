@@ -3,7 +3,7 @@ import { Box, Typography, Container, Grid, Card, CardContent, CardMedia, Chip, D
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import StarIcon from '@mui/icons-material/Star';
-import axios from 'axios';
+import api from '../../api/axiosInstance';
 import Topbar from '../../components/layout/Topbar';
 import Footer from '../../components/layout/Footer';
 import Loading from '../../components/common/Loading';
@@ -23,7 +23,7 @@ const RestaurantDiscoveryPage = () => {
   useEffect(() => {
     const fetchDiscoveryData = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/api/restaurants/discover?foodType=${foodType}&size=20`);
+        const response = await api.get(`/api/restaurants/discover?foodType=${foodType}&size=20`);
         if (response.data.success) {
           setRestaurants(response.data.data.content);
         }

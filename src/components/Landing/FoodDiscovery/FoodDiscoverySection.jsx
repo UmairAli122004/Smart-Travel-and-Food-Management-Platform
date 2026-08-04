@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Typography, Container, Grid } from '@mui/material';
-import axios from 'axios';
+import { Box, Typography, Container } from '@mui/material';
+import api from '../../../api/axiosInstance';
 import FoodDiscoveryCard from './FoodDiscoveryCard';
 import FoodDiscoverySkeleton from './FoodDiscoverySkeleton';
 
@@ -22,7 +22,7 @@ const FoodDiscoverySection = () => {
   useEffect(() => {
     const fetchFoodTypes = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/api/food-types');
+        const response = await api.get('/api/food-types');
         if (response.data.success && response.data.data && response.data.data.length > 0) {
           setFoodTypes(response.data.data);
         } else {
@@ -45,13 +45,20 @@ const FoodDiscoverySection = () => {
         <Typography variant="h5" sx={{ fontWeight: 700, mb: 4, px: 2 }}>
           What's on your mind?
         </Typography>
-        <Grid container spacing={2} columns={{ xs: 4, sm: 8, md: 8 }}>
+        <Box
+          sx={{
+            display: 'flex',
+            overflowX: 'hidden',
+            pb: 2,
+            gap: { xs: 2, sm: 3, md: 4 },
+          }}
+        >
           {Array.from(new Array(8)).map((_, index) => (
-            <Grid size={{ xs: 1 }} key={index}>
+            <Box key={index} sx={{ flexShrink: 0 }}>
               <FoodDiscoverySkeleton />
-            </Grid>
+            </Box>
           ))}
-        </Grid>
+        </Box>
       </Container>
     );
   }
@@ -63,13 +70,27 @@ const FoodDiscoverySection = () => {
       <Typography variant="h5" sx={{ fontWeight: 700, mb: 4, px: 2 }}>
         What's on your mind?
       </Typography>
-      <Grid container spacing={{ xs: 1, sm: 2 }} columns={{ xs: 4, sm: 8, md: 8 }} sx={{ pb: 2 }}>
+      
+      <Box
+        sx={{
+          display: 'flex',
+          overflowX: 'auto',
+          scrollBehavior: 'smooth',
+          pb: 2,
+          gap: { xs: 2, sm: 3, md: 4 },
+          '&::-webkit-scrollbar': {
+            display: 'none',
+          },
+          msOverflowStyle: 'none',
+          scrollbarWidth: 'none',
+        }}
+      >
         {foodTypes.map((foodType) => (
-          <Grid size={{ xs: 1 }} key={foodType.foodType}>
+          <Box key={foodType.foodType} sx={{ flexShrink: 0 }}>
             <FoodDiscoveryCard foodType={foodType} />
-          </Grid>
+          </Box>
         ))}
-      </Grid>
+      </Box>
     </Container>
   );
 };
