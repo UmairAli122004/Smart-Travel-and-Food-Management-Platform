@@ -38,7 +38,7 @@ const PlaceOrderPage = () => {
   const [restaurantDetails, setRestaurantDetails] = useState(null);
   const [deliveryStationDetails, setDeliveryStationDetails] = useState(null);
 
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, user } = useAuth();
   const navigate = useNavigate();
 
   const subtotal = Number(cartTotal);
@@ -198,8 +198,8 @@ const PlaceOrderPage = () => {
           <Card sx={{ p: 3, borderRadius: 3, boxShadow: '0 4px 12px rgba(0,0,0,0.05)' }}>
             <Typography variant="h6" fontWeight="700" sx={{ mb: 2 }}>Passenger Details</Typography>
             <Divider sx={{ mb: 2 }} />
-            <Typography variant="body1"><strong>Name:</strong> {passengerDetails?.firstName} {passengerDetails?.lastName}</Typography>
-            <Typography variant="body1"><strong>Phone:</strong> {passengerDetails?.phoneNumber}</Typography>
+            <Typography variant="body1"><strong>Name:</strong> {user?.username}</Typography>
+            <Typography variant="body1"><strong>Phone:</strong> {user?.phone}</Typography>
           </Card>
 
           <Card sx={{ p: 3, borderRadius: 3, boxShadow: '0 4px 12px rgba(0,0,0,0.05)' }}>
