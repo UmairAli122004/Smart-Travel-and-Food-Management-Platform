@@ -1,0 +1,37 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Environment variables - sensitive data, never push to GitHub
+.env
+.env.local
+.env.development
+.env.production
+.env.*.local
+
+# Temporary fix scripts - not needed in repository
+fix_dialog_tags.cjs
+fix_dialogs.cjs
+fix_grids.cjs
+test-dashboard.cjs

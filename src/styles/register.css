@@ -1,0 +1,11 @@
+/* Registration Page Styles */
+
+.register-page-container {
+  min-height: calc(100vh - 60px);
+  background-color: #f8f9fa;
+}
+
+.invalid-feedback {
+  font-size: 0.825rem;
+  color: #dc3545;
+}
