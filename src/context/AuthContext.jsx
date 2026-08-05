@@ -13,8 +13,9 @@ export const AuthProvider = ({ children }) => {
       const role = localStorage.getItem('role');
       const userId = localStorage.getItem('userId');
       const username = localStorage.getItem('username');
+      const phone = localStorage.getItem('phone');
       if (token && token !== 'null' && role && role !== 'null' && userId && userId !== 'null') {
-        setUser({ token, email, role, userId, username });
+        setUser({ token, email, role, userId, username, phone });
       }
       setLoading(false);
     };
@@ -26,6 +27,9 @@ export const AuthProvider = ({ children }) => {
     localStorage.setItem('role', authData.role);
     localStorage.setItem('userId', authData.userId);
     localStorage.setItem('username', authData.username || '');
+    if (authData.phone) {
+      localStorage.setItem('phone', authData.phone);
+    }
     setUser(authData);
 
     const redirectUrl = localStorage.getItem('redirectAfterLogin');
@@ -35,7 +39,7 @@ export const AuthProvider = ({ children }) => {
       return;
     }
 
-    switch(authData.role) {
+    switch (authData.role) {
       case 'ADMIN':
         navigate('/admin/dashboard', { replace: true });
         break;
@@ -47,9 +51,9 @@ export const AuthProvider = ({ children }) => {
         const pendingOrder = sessionStorage.getItem('pendingOrder');
         if (authData.profileComplete === true || authData.profileComplete === 'true') {
           if (pendingOrder) {
-             navigate('/passenger/place-order', { replace: true });
+            navigate('/passenger/place-order', { replace: true });
           } else {
-             navigate('/passenger/dashboard', { replace: true });
+            navigate('/passenger/dashboard', { replace: true });
           }
         } else {
           navigate('/passenger/profile-setup', { replace: true });
@@ -65,10 +69,11 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem('role');
     localStorage.removeItem('userId');
     localStorage.removeItem('username');
-    
+    localStorage.removeItem('phone');
+
     // Navigate first to trigger unmounts
     navigate('/', { replace: true });
-    
+
     // Cleanup any lingering MUI body locks AFTER components unmount
     setTimeout(() => {
       setUser(null);
@@ -86,7 +91,7 @@ export const AuthProvider = ({ children }) => {
     role: user?.role,
   };
   if (loading) {
-    return <div>Loading...</div>; 
+    return <div>Loading...</div>;
   }
   return (
     <AuthContext.Provider value={value}>

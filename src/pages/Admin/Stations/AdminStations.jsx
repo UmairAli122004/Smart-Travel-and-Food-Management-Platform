@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { 
-  Box, 
-  Typography, 
+import {
+  Box,
+  Typography,
   Paper,
   Table,
   TableBody,
@@ -51,11 +51,11 @@ const AdminStations = () => {
   const queryClient = useQueryClient();
 
   const [snackbar, setSnackbar] = useState({ open: false, message: '', severity: 'success' });
-  
+
   const showSnackbar = (message, severity = 'success') => {
     setSnackbar({ open: true, message, severity });
   };
-  
+
   const handleCloseSnackbar = (event, reason) => {
     if (reason === 'clickaway') return;
     setSnackbar(prev => ({ ...prev, open: false }));
@@ -69,7 +69,7 @@ const AdminStations = () => {
   // Form state
   const [formData, setFormData] = useState({
     stationName: '',
-    stationType: 'MAJOR',
+    stationType: 'RAILWAY',
     address: ''
   });
 
@@ -131,7 +131,7 @@ const AdminStations = () => {
       setSelectedStation(null);
       setFormData({
         stationName: '',
-        stationType: 'MAJOR',
+        stationType: 'RAILWAY',
         address: ''
       });
     }
@@ -179,7 +179,7 @@ const AdminStations = () => {
 
   if (debouncedSearchTerm) {
     const lower = debouncedSearchTerm.toLowerCase();
-    stations = stations.filter(s => 
+    stations = stations.filter(s =>
       s.stationName?.toLowerCase().includes(lower) ||
       s.address?.toLowerCase().includes(lower)
     );
@@ -194,8 +194,8 @@ const AdminStations = () => {
         <Typography variant="h4" fontWeight={700}>
           Station Management
         </Typography>
-        <Button 
-          variant="contained" 
+        <Button
+          variant="contained"
           startIcon={<AddIcon />}
           onClick={() => handleOpenDialog()}
         >
@@ -253,23 +253,23 @@ const AdminStations = () => {
                   <TableCell fontWeight="medium">{station.stationName}</TableCell>
                   <TableCell>{station.address || '-'}</TableCell>
                   <TableCell>
-                    <Chip 
-                      label={station.stationType} 
-                      color={station.stationType === 'MAJOR' ? 'primary' : 'default'}
-                      size="small" 
+                    <Chip
+                      label={station.stationType}
+                      color={station.stationType === 'RAILWAY' ? 'primary' : 'default'}
+                      size="small"
                     />
                   </TableCell>
                   <TableCell align="right">
-                    <IconButton 
-                      color="primary" 
+                    <IconButton
+                      color="primary"
                       onClick={() => handleOpenDialog(station)}
                       size="small"
                       sx={{ mr: 1 }}
                     >
                       <EditIcon fontSize="small" />
                     </IconButton>
-                    <IconButton 
-                      color="error" 
+                    <IconButton
+                      color="error"
                       onClick={() => handleOpenDeleteDialog(station)}
                       size="small"
                     >
@@ -284,10 +284,10 @@ const AdminStations = () => {
       )}
 
       {/* Create / Edit Dialog */}
-      <Dialog 
-        open={openDialog} 
-        onClose={isSubmitting ? undefined : handleCloseDialog} 
-        maxWidth="sm" 
+      <Dialog
+        open={openDialog}
+        onClose={isSubmitting ? undefined : handleCloseDialog}
+        maxWidth="sm"
         fullWidth
         disableEnforceFocus
         disableRestoreFocus
@@ -314,9 +314,9 @@ const AdminStations = () => {
                   label="Station Type"
                   onChange={handleChange}
                 >
-                  <MenuItem value="MAJOR">MAJOR</MenuItem>
-                  <MenuItem value="MINOR">MINOR</MenuItem>
                   <MenuItem value="RAILWAY">RAILWAY</MenuItem>
+                  <MenuItem value="BUS">BUS</MenuItem>
+                  <MenuItem value="AIRPORT">AIRPORT</MenuItem>
                 </Select>
               </FormControl>
               <TextField
@@ -333,9 +333,9 @@ const AdminStations = () => {
           </DialogContent>
           <DialogActions>
             <Button onClick={handleCloseDialog} disabled={isSubmitting}>Cancel</Button>
-            <Button 
-              type="submit" 
-              variant="contained" 
+            <Button
+              type="submit"
+              variant="contained"
               disabled={isSubmitting}
             >
               {isSubmitting ? <CircularProgress size={24} /> : (selectedStation ? 'Update' : 'Create')}
@@ -345,8 +345,8 @@ const AdminStations = () => {
       </Dialog>
 
       {/* Delete Confirmation Dialog */}
-      <Dialog 
-        open={openDeleteDialog} 
+      <Dialog
+        open={openDeleteDialog}
         onClose={isDeleting ? undefined : handleCloseDeleteDialog}
         disableEnforceFocus
         disableRestoreFocus
@@ -359,9 +359,9 @@ const AdminStations = () => {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleCloseDeleteDialog} disabled={isDeleting}>Cancel</Button>
-          <Button 
-            color="error" 
-            variant="contained" 
+          <Button
+            color="error"
+            variant="contained"
             onClick={handleDelete}
             disabled={isDeleting}
           >
@@ -369,7 +369,7 @@ const AdminStations = () => {
           </Button>
         </DialogActions>
       </Dialog>
-      
+
       <Snackbar
         open={snackbar.open}
         autoHideDuration={6000}

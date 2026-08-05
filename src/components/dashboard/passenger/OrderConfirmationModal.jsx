@@ -53,7 +53,12 @@ const OrderConfirmationModal = ({ open, onClose, order }) => {
       <DialogContent sx={{ p: 0, maxHeight: '50vh', overflowY: 'auto', bgcolor: '#f8f9fa' }}>
         <Box sx={{ p: 3 }}>
           <Typography variant="body2" color="text.secondary" sx={{ mb: 2, textAlign: 'center' }}>
-            Delivery at <strong>{orderList[0].station?.stationName || 'the station'}</strong>
+            Delivery at <strong>{orderList[0].station?.stationName || orderList[0].stationName || 'the station'}</strong>
+            {orderList[0].passengerPhone && (
+              <Box component="span" sx={{ display: 'block', mt: 0.5 }}>
+                Phone: <strong>{orderList[0].passengerPhone}</strong>
+              </Box>
+            )}
           </Typography>
           
           {orderList.map((singleOrder) => (
