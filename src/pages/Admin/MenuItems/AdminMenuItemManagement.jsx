@@ -66,10 +66,7 @@ const AdminMenuItemManagement = () => {
             </TableHead>
             <TableBody>
               {menuItems.map((item) => {
-                const timestamp = item.updatedAt ? new Date(item.updatedAt).getTime() : Date.now();
-                const imageUrl = item.imageUrl 
-                  ? `${ENV.API_BASE_URL}${item.imageUrl}?t=${timestamp}` 
-                  : 'https://via.placeholder.com/50';
+                const imageUrl = item.imageUrl ? item.imageUrl : 'https://placehold.co/400x200?text=No+Image';
                 
                 return (
                   <TableRow key={item.id} hover>

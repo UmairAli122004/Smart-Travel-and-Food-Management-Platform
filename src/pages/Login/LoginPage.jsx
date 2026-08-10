@@ -79,7 +79,7 @@ const LoginPage = () => {
             sx={{ flex: 1, py: 1, backgroundColor: '#c62828', '&:hover': { backgroundColor: '#b71c1c' } }}
             disabled={isSubmitting}
           >
-            {isSubmitting ? 'Authenticating...' : 'Sign In'}
+            {isSubmitting ? 'Authenticating...' : 'Submit'}
           </BaseButton>
           <BaseButton
             variant="outlined"

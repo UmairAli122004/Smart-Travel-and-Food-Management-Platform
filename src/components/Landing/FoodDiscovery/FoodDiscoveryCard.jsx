@@ -2,16 +2,7 @@ import React from 'react';
 import { Box, Typography, Avatar } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-const customImages = {
-  'GLUTEN_FREE': '/images/food/gluten_free.png',
-  'HIGH_PROTEIN': '/images/food/high_protein.png',
-  'SEAFOOD': '/images/food/seafood.png',
-  'VEGAN': '/images/food/vegan.png',
-  'DAIRY_FREE': '/images/food/dairy_free.png',
-  'DINNER': '/images/food/dinner.png',
-  'MUTTON': '/images/food/mutton.png',
-  'VEG': '/images/food/veg.png',
-};
+import { optimizeCloudinaryUrl } from '../../../utils/cloudinary';
 
 const FoodDiscoveryCard = ({ foodType }) => {
   const navigate = useNavigate();
@@ -20,7 +11,7 @@ const FoodDiscoveryCard = ({ foodType }) => {
     navigate(`/food-type/${foodType.foodType}`);
   };
 
-  const imageSrc = customImages[foodType.foodType] || foodType.imageUrl;
+  const imageSrc = optimizeCloudinaryUrl(foodType.imageUrl, { width: 200, height: 200, crop: 'fill' });
 
   return (
     <Box 

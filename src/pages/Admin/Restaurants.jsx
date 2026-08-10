@@ -28,6 +28,7 @@ import useDebounce from '../../hooks/useDebounce';
 import SectionLoader from '../../components/dashboard/SectionLoader';
 import ErrorAlert from '../../components/dashboard/ErrorAlert';
 import { ENV } from '../../config/env';
+import { optimizeCloudinaryUrl } from '../../utils/cloudinary';
 
 const fetchAllRestaurants = async ({ queryKey }) => {
   const [_key, page, size, sortBy, direction] = queryKey;
@@ -124,9 +125,8 @@ const AdminRestaurants = () => {
         <Grid container spacing={3}>
           {restaurants.map((restaurant) => {
             const timestamp = restaurant.updatedAt ? new Date(restaurant.updatedAt).getTime() : Date.now();
-            const imageUrl = restaurant.imageUrl 
-              ? `${ENV.API_BASE_URL}${restaurant.imageUrl}?t=${timestamp}` 
-              : 'https://via.placeholder.com/400x200?text=No+Image';
+            const rawImageUrl = restaurant.imageUrl ? restaurant.imageUrl : 'https://placehold.co/400x200?text=No+Image';
+            const imageUrl = optimizeCloudinaryUrl(rawImageUrl, { width: 400, height: 200, crop: 'fill' });
             
             return (
               <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={restaurant.id}>
@@ -156,6 +156,7 @@ const AdminRestaurants = () => {
                       <img 
                         src={imageUrl} 
                         alt=""
+                        loading="lazy"
                         style={{ 
                           position: 'absolute',
                           top: 0,
@@ -171,6 +172,7 @@ const AdminRestaurants = () => {
                       <img 
                         src={imageUrl} 
                         alt={restaurant.restaurantName} 
+                        loading="lazy"
                         style={{ 
                           position: 'absolute',
                           top: 0,

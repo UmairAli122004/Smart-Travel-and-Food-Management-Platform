@@ -143,7 +143,7 @@ const RestaurantDetails = () => {
         <CardMedia
           component="img"
           height="300"
-          image={restaurant.imageUrl ? `${axiosInstance.defaults.baseURL}${RESTAURANT_API.IMAGE(restaurant.id)}` : 'https://placehold.co/1200x300?text=No+Image'}
+          image={restaurant.imageUrl ? restaurant.imageUrl : 'https://placehold.co/1200x300?text=No+Image'}
           alt={restaurant.restaurantName}
           sx={{ objectFit: 'cover' }}
           onError={(e) => {
@@ -216,8 +216,9 @@ const RestaurantDetails = () => {
                               backgroundColor: '#000'
                             }}>
                               <img
-                                src={item.imageUrl ? `${ENV.API_BASE_URL}${item.imageUrl}` : 'https://via.placeholder.com/400x200?text=No+Image'}
+                                src={item.imageUrl ? item.imageUrl : 'https://via.placeholder.com/400x200?text=No+Image'}
                                 alt=""
+                                loading="lazy"
                                 style={{ 
                                   position: 'absolute',
                                   top: 0,
@@ -231,8 +232,9 @@ const RestaurantDetails = () => {
                                 }}
                               />
                               <img
-                                src={item.imageUrl ? `${ENV.API_BASE_URL}${item.imageUrl}` : 'https://via.placeholder.com/400x200?text=No+Image'}
+                                src={item.imageUrl ? item.imageUrl : 'https://via.placeholder.com/400x200?text=No+Image'}
                                 alt={item.menuName}
+                                loading="lazy"
                                 style={{ 
                                   position: 'absolute',
                                   top: 0,

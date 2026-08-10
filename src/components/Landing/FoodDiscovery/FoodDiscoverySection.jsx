@@ -6,13 +6,24 @@ import FoodDiscoverySkeleton from './FoodDiscoverySkeleton';
 
 const STATIC_FOOD_TYPES = [
   { foodType: 'VEG', foodTypeName: 'Veg', imageUrl: null },
-  { foodType: 'MUTTON', foodTypeName: 'Mutton', imageUrl: null },
+  { foodType: 'NON_VEG', foodTypeName: 'Non Veg', imageUrl: null },
+  { foodType: 'EGG', foodTypeName: 'Egg', imageUrl: null },
+  { foodType: 'VEGAN', foodTypeName: 'Vegan', imageUrl: null },
   { foodType: 'GLUTEN_FREE', foodTypeName: 'Gluten Free', imageUrl: null },
+  { foodType: 'DAIRY_FREE', foodTypeName: 'Dairy Free', imageUrl: null },
+  { foodType: 'LOW_CARB', foodTypeName: 'Low Carb', imageUrl: null },
   { foodType: 'HIGH_PROTEIN', foodTypeName: 'High Protein', imageUrl: null },
   { foodType: 'SEAFOOD', foodTypeName: 'Seafood', imageUrl: null },
-  { foodType: 'VEGAN', foodTypeName: 'Vegan', imageUrl: null },
-  { foodType: 'DAIRY_FREE', foodTypeName: 'Dairy Free', imageUrl: null },
+  { foodType: 'CHICKEN', foodTypeName: 'Chicken', imageUrl: null },
+  { foodType: 'MUTTON', foodTypeName: 'Mutton', imageUrl: null },
+  { foodType: 'DESSERT', foodTypeName: 'Dessert', imageUrl: null },
+  { foodType: 'BEVERAGE', foodTypeName: 'Beverage', imageUrl: null },
+  { foodType: 'SNACK', foodTypeName: 'Snack', imageUrl: null },
+  { foodType: 'BREAKFAST', foodTypeName: 'Breakfast', imageUrl: null },
+  { foodType: 'LUNCH', foodTypeName: 'Lunch', imageUrl: null },
   { foodType: 'DINNER', foodTypeName: 'Dinner', imageUrl: null },
+  { foodType: 'FAST_FOOD', foodTypeName: 'Fast Food', imageUrl: null },
+  { foodType: 'HEALTHY', foodTypeName: 'Healthy', imageUrl: null },
 ];
 
 const FoodDiscoverySection = () => {

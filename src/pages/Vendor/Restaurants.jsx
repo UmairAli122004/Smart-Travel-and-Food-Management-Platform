@@ -12,6 +12,7 @@ import api from '../../api/axiosInstance';
 import CreateRestaurantModal from '../../components/dashboard/vendor/CreateRestaurantModal';
 import EditRestaurantModal from '../../components/dashboard/vendor/EditRestaurantModal';
 import { ENV } from '../../config/env';
+import { optimizeCloudinaryUrl } from '../../utils/cloudinary';
 const fetchMyRestaurants = async () => {
   const response = await api.get('/api/restaurants/vendor/my-restaurants');
   return response.data.data; 
@@ -88,9 +89,8 @@ const VendorRestaurants = () => {
         <Grid container spacing={3}>
           {restaurants.map((restaurant) => {
             const timestamp = restaurant.updatedAt ? new Date(restaurant.updatedAt).getTime() : Date.now();
-            const imageUrl = restaurant.imageUrl 
-              ? `${ENV.API_BASE_URL}${restaurant.imageUrl}?t=${timestamp}` 
-              : 'https://via.placeholder.com/400x200?text=No+Image';
+            const rawImageUrl = restaurant.imageUrl ? restaurant.imageUrl : 'https://placehold.co/400x200?text=No+Image';
+            const imageUrl = optimizeCloudinaryUrl(rawImageUrl, { width: 400, height: 200, crop: 'fill' });
             return (
               <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={restaurant.id}>
                 <Card sx={{ 
@@ -119,6 +119,7 @@ const VendorRestaurants = () => {
                       <img 
                         src={imageUrl} 
                         alt=""
+                        loading="lazy"
                         style={{ 
                           position: 'absolute',
                           top: 0,
@@ -134,6 +135,7 @@ const VendorRestaurants = () => {
                       <img 
                         src={imageUrl} 
                         alt={restaurant.restaurantName} 
+                        loading="lazy"
                         style={{ 
                           position: 'absolute',
                           top: 0,

@@ -75,8 +75,7 @@ export const ORDER_API = {
 };
 export const RESTAURANT_API = {
   ALL: '/api/restaurants',
-  BY_ID: (id) => `/api/restaurants/${id}`,
-  IMAGE: (id) => `/api/restaurants/${id}/image`
+  BY_ID: (id) => `/api/restaurants/${id}`
 };
 
 export const STATION_API = {

@@ -7,6 +7,8 @@ import { useAuth } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { ENV } from '../../config/env';
 
+import { optimizeCloudinaryUrl } from '../../utils/cloudinary';
+
 const MenuItemCard = React.memo(({ item }) => {
   const theme = useTheme();
   const { cartItems, addToCart, updateQuantity, removeFromCart } = useCart();
@@ -34,7 +36,8 @@ const MenuItemCard = React.memo(({ item }) => {
   };
 
   const placeholderImage = 'https://placehold.co/400x300?text=Food+Image';
-  const imageUrl = imageError ? placeholderImage : (item.imageUrl ? `${ENV.API_BASE_URL}${item.imageUrl}` : placeholderImage);
+  const rawImageUrl = imageError ? placeholderImage : (item.imageUrl || placeholderImage);
+  const imageUrl = optimizeCloudinaryUrl(rawImageUrl, { width: 400, height: 300, crop: 'fill' });
 
   return (
     <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', borderRadius: 2, boxShadow: 3 }}>

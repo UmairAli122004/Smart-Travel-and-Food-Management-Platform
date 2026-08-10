@@ -89,7 +89,7 @@ const VendorLoginPage = () => {
             sx={{ flex: 1, py: 1, backgroundColor: '#c62828', '&:hover': { backgroundColor: '#b71c1c' } }}
             disabled={isSubmitting}
           >
-            {isSubmitting ? 'Signing in...' : 'Sign In'}
+            {isSubmitting ? 'Signing in...' : 'Submit'}
           </BaseButton>
           <BaseButton
             variant="outlined"

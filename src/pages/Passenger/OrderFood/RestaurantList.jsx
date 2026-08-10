@@ -11,6 +11,8 @@ import StorefrontIcon from '@mui/icons-material/Storefront';
 import axiosInstance from '../../../api/axiosInstance';
 import { RESTAURANT_API } from '../../../constants/apiEndpoints';
 
+import { optimizeCloudinaryUrl } from '../../../utils/cloudinary';
+
 const RestaurantList = () => {
   const { journeyId } = useParams();
   const navigate = useNavigate();
@@ -102,7 +104,11 @@ const RestaurantList = () => {
         </Box>
       ) : (
         <Grid container spacing={3}>
-          {filteredRestaurants.map((restaurant) => (
+          {filteredRestaurants.map((restaurant) => {
+            const rawImageUrl = restaurant.imageUrl ? restaurant.imageUrl : 'https://placehold.co/400x200?text=No+Image';
+            const optimizedImageUrl = optimizeCloudinaryUrl(rawImageUrl, { width: 400, height: 200, crop: 'fill' });
+            
+            return (
             <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={restaurant.id}>
               <Card 
                 sx={{ 
@@ -130,7 +136,7 @@ const RestaurantList = () => {
                     backgroundColor: '#000'
                   }}>
                     <img
-                      src={restaurant.imageUrl ? `${axiosInstance.defaults.baseURL}${RESTAURANT_API.IMAGE(restaurant.id)}` : 'https://placehold.co/400x200?text=No+Image'}
+                      src={optimizedImageUrl}
                       alt=""
                       style={{ 
                         position: 'absolute',
@@ -143,12 +149,13 @@ const RestaurantList = () => {
                         opacity: 0.5,
                         transform: 'scale(1.2)'
                       }}
+                      loading="lazy"
                       onError={(e) => {
                         e.target.src = 'https://placehold.co/400x200?text=No+Image';
                       }}
                     />
                     <img
-                      src={restaurant.imageUrl ? `${axiosInstance.defaults.baseURL}${RESTAURANT_API.IMAGE(restaurant.id)}` : 'https://placehold.co/400x200?text=No+Image'}
+                      src={optimizedImageUrl}
                       alt={restaurant.restaurantName}
                       style={{ 
                         position: 'absolute',
@@ -158,6 +165,7 @@ const RestaurantList = () => {
                         height: '100%', 
                         objectFit: 'contain' 
                       }}
+                      loading="lazy"
                       onError={(e) => {
                         e.target.src = 'https://placehold.co/400x200?text=No+Image';
                       }}
@@ -211,7 +219,8 @@ const RestaurantList = () => {
                 </CardContent>
               </Card>
             </Grid>
-          ))}
+            );
+          })}
         </Grid>
       )}
     </Container>

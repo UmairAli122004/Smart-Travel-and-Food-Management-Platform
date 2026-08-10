@@ -11,6 +11,7 @@ import { MENU_ITEM_API } from '../../../constants/apiEndpoints';
 import MenuItemModal from '../../../components/dashboard/vendor/MenuItemModal';
 import ErrorBoundary from '../../../components/common/ErrorBoundary';
 import { ENV } from '../../../config/env';
+import { optimizeCloudinaryUrl } from '../../../utils/cloudinary';
 const fetchMenuItems = async (categoryId) => {
   const response = await api.get(`${MENU_ITEM_API.BY_CATEGORY(categoryId)}?page=0&size=100`);
   return response.data.data.content || [];
@@ -161,7 +162,10 @@ const MenuItemManagement = () => {
         </Paper>
       ) : (
         <Grid container spacing={3}>
-          {menuItems.map((item) => (
+          {menuItems.map((item) => {
+            const rawImageUrl = item.imageUrl ? item.imageUrl : 'https://placehold.co/400x200?text=No+Image';
+            const imageUrl = optimizeCloudinaryUrl(rawImageUrl, { width: 400, height: 200, crop: 'fill' });
+            return (
             <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={item.id}>
               <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', borderRadius: 2, boxShadow: 3 }}>
                 <Box sx={{ p: 1.5, pb: 0 }}>
@@ -175,8 +179,9 @@ const MenuItemManagement = () => {
                     backgroundColor: '#000'
                   }}>
                     <img
-                      src={item.imageUrl ? `${ENV.API_BASE_URL}${item.imageUrl}?t=${new Date().getTime()}` : 'https://via.placeholder.com/400x200?text=No+Image'}
+                      src={imageUrl}
                       alt=""
+                      loading="lazy"
                       style={{ 
                         position: 'absolute',
                         top: 0,
@@ -190,8 +195,9 @@ const MenuItemManagement = () => {
                       }}
                     />
                     <img
-                      src={item.imageUrl ? `${ENV.API_BASE_URL}${item.imageUrl}?t=${new Date().getTime()}` : 'https://via.placeholder.com/400x200?text=No+Image'}
+                      src={imageUrl}
                       alt={item.menuName}
+                      loading="lazy"
                       style={{ 
                         position: 'absolute',
                         top: 0,
@@ -256,7 +262,8 @@ const MenuItemManagement = () => {
                 </CardContent>
               </Card>
             </Grid>
-          ))}
+            );
+          })}
         </Grid>
       )}
       <MenuItemModal 
