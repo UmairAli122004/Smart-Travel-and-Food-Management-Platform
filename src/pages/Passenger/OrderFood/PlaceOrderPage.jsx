@@ -249,8 +249,7 @@ const PlaceOrderPage = () => {
                   <ListItem sx={{ px: 0, py: 1.5, alignItems: "flex-start" }}>
                     <ListItemText
                       primary={<Typography fontWeight="600" sx={{ fontSize: '0.95rem' }}>{item.menuName}</Typography>}
-                      secondary={`₹${Number(item.price).toFixed(2)} x ${item.quantity}`}
-                      secondaryTypographyProps={{ fontSize: '0.85rem' }}
+                      secondary={<Typography sx={{ fontSize: '0.85rem', color: 'text.secondary' }}>{`₹${Number(item.price).toFixed(2)} x ${item.quantity}`}</Typography>}
                     />
                     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
                       <Typography fontWeight="700" sx={{ mb: 1, color: 'primary.main', fontSize: '0.95rem' }}>
@@ -267,7 +266,7 @@ const PlaceOrderPage = () => {
                       </Box>
                     </Box>
                   </ListItem>
-                  <Divider component="li" light />
+                  <Divider component="li" sx={{ opacity: 0.6 }} />
                 </React.Fragment>
               ))}
             </List>
