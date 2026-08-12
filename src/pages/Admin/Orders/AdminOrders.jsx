@@ -219,10 +219,10 @@ const AdminOrders = () => {
               ),
             }
           }}
-          sx={{ minWidth: 350 }}
+          sx={{ width: { xs: '100%', sm: 350 } }}
         />
         
-        <FormControl size="small" sx={{ minWidth: 200 }}>
+        <FormControl size="small" sx={{ width: { xs: '100%', sm: 200 } }}>
           <InputLabel>Status Filter</InputLabel>
           <Select
             value={statusFilter}

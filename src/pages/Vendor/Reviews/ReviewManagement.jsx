@@ -80,7 +80,7 @@ const ReviewManagement = () => {
       </Box>
 
       <Grid container spacing={3} sx={{ mb: 4 }}>
-        <Grid size={{ xs: 12, md: 4 }}>
+        <Grid item xs={12} md={4}>
           <Paper sx={{ p: 3, textAlign: 'center', borderRadius: 2, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', boxShadow: 2 }}>
             <Typography variant="h6" color="text.secondary" gutterBottom>Average Rating</Typography>
             <Typography variant="h2" fontWeight={700} color="primary.main">{displaySummary.averageRating.toFixed(1)}</Typography>
@@ -88,7 +88,7 @@ const ReviewManagement = () => {
             <Typography variant="body2" color="text.secondary" mt={1}>Based on {displaySummary.totalReviews} reviews</Typography>
           </Paper>
           </Grid>
-          <Grid size={{ xs: 12, md: 8 }}>
+          <Grid item xs={12} md={8}>
             <Paper sx={{ p: 3, borderRadius: 2, boxShadow: 2, height: '100%' }}>
               <Typography variant="h6" color="text.secondary" gutterBottom>Rating Distribution</Typography>
               <Box>
@@ -116,7 +116,7 @@ const ReviewManagement = () => {
         <Box sx={{ mt: 2 }}>
           <Grid container spacing={3}>
             {reviews.map((review) => (
-              <Grid size={{ xs: 12 }} key={review.id}>
+              <Grid item xs={12} key={review.id}>
                 <Card sx={{ borderRadius: 2, boxShadow: 2 }}>
                   <CardContent>
                     <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", mb: 2 }}>

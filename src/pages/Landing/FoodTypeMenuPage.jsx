@@ -55,7 +55,7 @@ const FoodTypeMenuPage = () => {
         {loading && !isFetchingMore && items.length === 0 ? (
           <Grid container spacing={3}>
             {Array.from(new Array(8)).map((_, index) => (
-              <Grid size={{ xs: 12, sm: 6, md: 3 }} key={index}>
+              <Grid item xs={12} sm={6} md={3} key={index}>
                 <Box sx={{ width: '100%', height: 350, bgcolor: 'grey.300', borderRadius: 2, animation: 'pulse 1.5s infinite' }} />
               </Grid>
             ))}
@@ -77,7 +77,7 @@ const FoodTypeMenuPage = () => {
               /* Grid Layout */
               <Grid container spacing={3}>
                 {items.map((item) => (
-                  <Grid size={{ xs: 12, sm: 6, md: 3 }} key={item.id}>
+                  <Grid item xs={12} sm={6} md={3} key={item.id}>
                     <MenuItemCard item={item} />
                   </Grid>
                 ))}

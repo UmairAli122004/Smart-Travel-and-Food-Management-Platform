@@ -94,10 +94,10 @@ const AdminRestaurants = () => {
               ),
             }
           }}
-          sx={{ minWidth: 300 }}
+          sx={{ width: { xs: '100%', sm: 300 } }}
         />
         
-        <FormControl size="small" sx={{ minWidth: 200 }}>
+        <FormControl size="small" sx={{ width: { xs: '100%', sm: 200 } }}>
           <InputLabel>Status</InputLabel>
           <Select
             value={statusFilter}
@@ -129,7 +129,7 @@ const AdminRestaurants = () => {
             const imageUrl = optimizeCloudinaryUrl(rawImageUrl, { width: 400, height: 200, crop: 'fill' });
             
             return (
-              <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={restaurant.id}>
+              <Grid item xs={12} sm={6} md={4} lg={3} key={restaurant.id}>
                 <Card sx={{ 
                   display: 'flex', 
                   flexDirection: 'column', 

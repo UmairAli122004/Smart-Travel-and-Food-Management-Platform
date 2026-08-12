@@ -82,7 +82,7 @@ const VendorLoginPage = () => {
           disabled={isSubmitting}
         />
         
-        <Box sx={{ display: 'flex', gap: 2, mt: 3, mb: 2 }}>
+        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 2, mt: 3, mb: 2 }}>
           <BaseButton
             type="submit"
             variant="contained"

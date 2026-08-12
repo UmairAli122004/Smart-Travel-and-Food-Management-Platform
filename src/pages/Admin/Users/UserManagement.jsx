@@ -45,7 +45,7 @@ const UserManagement = () => {
       </Typography>
 
       <Box sx={{ borderBottom: 1, borderColor: 'divider', mb: 3 }}>
-        <Tabs value={tabIndex} onChange={handleTabChange} aria-label="user roles tabs">
+        <Tabs value={tabIndex} onChange={handleTabChange} aria-label="user roles tabs" variant="scrollable" scrollButtons="auto" allowScrollButtonsMobile>
           <Tab label="Vendors" />
           <Tab label="Passengers" />
           <Tab label="Admins" />

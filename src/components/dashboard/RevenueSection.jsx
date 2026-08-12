@@ -64,7 +64,7 @@ const RevenueSection = () => {
       </Box>
       {data && (
         <Grid container spacing={3} sx={{ mb: 5 }}>
-          <Grid size={{ xs: 12, sm: 6 }}>
+          <Grid item xs={12} sm={6}>
             <DashboardCard
               title={data.totalRevenueCard?.title || 'Total Revenue'}
               value={data.totalRevenueCard?.value || '₹0'}
@@ -73,7 +73,7 @@ const RevenueSection = () => {
               color="#2e7d32"
             />
           </Grid>
-          <Grid size={{ xs: 12, sm: 6 }}>
+          <Grid item xs={12} sm={6}>
             <DashboardCard
               title={data.averageOrderValueCard?.title || 'Avg Order Value'}
               value={data.averageOrderValueCard?.value || '₹0'}

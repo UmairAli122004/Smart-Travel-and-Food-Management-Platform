@@ -23,7 +23,7 @@ const VendorSummaryCards = () => {
         Business Overview
       </Typography>
       <Grid container spacing={3} mb={3}>
-        <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+        <Grid item xs={12} sm={6} md={3}>
           <DashboardCard
             title="Total Restaurants"
             value={data.totalRestaurants}
@@ -31,7 +31,7 @@ const VendorSummaryCards = () => {
             color="#1976d2"
           />
         </Grid>
-        <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+        <Grid item xs={12} sm={6} md={3}>
           <DashboardCard
             title="Total Orders"
             value={data.totalOrders}
@@ -39,7 +39,7 @@ const VendorSummaryCards = () => {
             color="#ed6c02"
           />
         </Grid>
-        <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+        <Grid item xs={12} sm={6} md={3}>
           <DashboardCard
             title="Total Revenue"
             value={formattedRevenue}
@@ -47,7 +47,7 @@ const VendorSummaryCards = () => {
             color="#2e7d32"
           />
         </Grid>
-        <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+        <Grid item xs={12} sm={6} md={3}>
           <DashboardCard
             title="Average Rating"
             value={data.averageRating?.toFixed(1) || '0.0'}
@@ -58,22 +58,22 @@ const VendorSummaryCards = () => {
       </Grid>
       <Divider sx={{ mb: 2 }} />
       <Grid container spacing={2}>
-        <Grid size={{ xs: 6, sm: 4, md: 2 }}>
+        <Grid item xs={6} sm={4} md={2}>
           <StatCard label="Completed Orders" value={data.completedOrders} color="#2e7d32" />
         </Grid>
-        <Grid size={{ xs: 6, sm: 4, md: 2 }}>
+        <Grid item xs={6} sm={4} md={2}>
           <StatCard label="Pending Orders" value={data.pendingOrders} color="#ed6c02" />
         </Grid>
-        <Grid size={{ xs: 6, sm: 4, md: 2 }}>
+        <Grid item xs={6} sm={4} md={2}>
           <StatCard label="Cancelled Orders" value={data.cancelledOrders} color="#d32f2f" />
         </Grid>
-        <Grid size={{ xs: 6, sm: 4, md: 2 }}>
+        <Grid item xs={6} sm={4} md={2}>
           <StatCard label="Today's Revenue" value={`₹${Number(data.todayRevenue).toLocaleString('en-IN')}`} color="#0288d1" />
         </Grid>
-        <Grid size={{ xs: 6, sm: 4, md: 2 }}>
+        <Grid item xs={6} sm={4} md={2}>
           <StatCard label="Monthly Revenue" value={`₹${Number(data.monthlyRevenue).toLocaleString('en-IN')}`} color="#8e24aa" />
         </Grid>
-        <Grid size={{ xs: 6, sm: 4, md: 2 }}>
+        <Grid item xs={6} sm={4} md={2}>
           <StatCard label="Active Complaints" value={data.activeComplaints} color="#c62828" />
         </Grid>
       </Grid>

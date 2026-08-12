@@ -49,7 +49,7 @@ const OrderAnalyticsSection = () => {
         Order Analytics
       </Typography>
       <Grid container spacing={3} sx={{ mb: 5 }}>
-        <Grid size={{ xs: 6, sm: 3 }}>
+        <Grid item xs={6} sm={3}>
           <StatCard
             label="This Month"
             value={monthComparison.thisMonth}
@@ -57,7 +57,7 @@ const OrderAnalyticsSection = () => {
             color="#1976d2"
           />
         </Grid>
-        <Grid size={{ xs: 6, sm: 3 }}>
+        <Grid item xs={6} sm={3}>
           <StatCard
             label="Last Month"
             value={monthComparison.lastMonth}
@@ -65,7 +65,7 @@ const OrderAnalyticsSection = () => {
             color="#757575"
           />
         </Grid>
-        <Grid size={{ xs: 12, sm: 6 }}>
+        <Grid item xs={12} sm={6}>
           <StatCard
             label="Month-over-Month"
             value={`${monthComparison.change > 0 ? '+' : ''}${monthComparison.change}%`}
@@ -75,7 +75,7 @@ const OrderAnalyticsSection = () => {
         </Grid>
       </Grid>
       <Grid container spacing={3}>
-        <Grid size={{ xs: 12, md: 6 }}>
+        <Grid item xs={12} md={6}>
           <Card>
             <CardContent>
               <Typography variant="subtitle1" fontWeight={600} mb={1}>
@@ -107,7 +107,7 @@ const OrderAnalyticsSection = () => {
             </CardContent>
           </Card>
         </Grid>
-        <Grid size={{ xs: 12, md: 6 }}>
+        <Grid item xs={12} md={6}>
           <Card>
             <CardContent>
               <Typography variant="subtitle1" fontWeight={600} mb={1}>

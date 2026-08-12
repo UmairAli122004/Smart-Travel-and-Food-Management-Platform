@@ -117,8 +117,8 @@ const RestaurantDiscoveryPage = () => {
                         const quantity = cartItem ? cartItem.quantity : 0;
                         
                         return (
-                        <Box key={item.id} sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                        <Box key={item.id} sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 2 }}>
+                          <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 1, minWidth: 0, flex: 1 }}>
                             <Box 
                               sx={{ 
                                 width: 16, height: 16, border: '2px solid', 
@@ -128,8 +128,8 @@ const RestaurantDiscoveryPage = () => {
                             >
                               <Box sx={{ width: 8, height: 8, borderRadius: '50%', bgcolor: item.isVeg ? 'success.main' : 'error.main' }} />
                             </Box>
-                            <Box>
-                              <Typography variant="body1" sx={{ fontWeight: 600 }}>{item.menuName}</Typography>
+                            <Box sx={{ minWidth: 0, flex: 1 }}>
+                              <Typography variant="body1" sx={{ fontWeight: 600, wordBreak: 'break-word', lineHeight: 1.2, mb: 0.5 }}>{item.menuName}</Typography>
                               <Typography variant="body2" sx={{ fontWeight: 600 }}>₹{item.price}</Typography>
                             </Box>
                           </Box>
@@ -143,7 +143,8 @@ const RestaurantDiscoveryPage = () => {
                               overflow: 'hidden',
                               bgcolor: 'primary.light',
                               color: 'primary.contrastText',
-                              height: 30
+                              height: 30,
+                              flexShrink: 0
                             }}>
                               <Button 
                                 size="small" 
@@ -173,7 +174,7 @@ const RestaurantDiscoveryPage = () => {
                                 e.stopPropagation();
                                 handleAddToCart(item, restaurant.restaurantId);
                               }}
-                              sx={{ borderRadius: 2, fontWeight: 600 }}
+                              sx={{ borderRadius: 2, fontWeight: 600, flexShrink: 0 }}
                             >
                               ADD
                             </Button>

@@ -61,13 +61,13 @@ const LandingPage = () => {
               Smart<Box component="span" sx={{ color: 'primary.main' }}>Food</Box>
             </Typography>
           </Box>
-          <Box sx={{ display: 'flex', gap: 2 }}>
+          <Box sx={{ display: 'flex', gap: { xs: 1, sm: 2 } }}>
             <BaseButton 
               variant="outlined" 
               color="primary" 
               component={Link} 
               to="/login"
-              sx={{ fontWeight: 600, borderRadius: 2 }}
+              sx={{ fontWeight: 600, borderRadius: 2, px: { xs: 1, sm: 2 }, fontSize: { xs: '0.75rem', sm: '0.875rem' } }}
             >
               Login
             </BaseButton>
@@ -76,9 +76,10 @@ const LandingPage = () => {
               color="primary" 
               component={Link} 
               to="/vendor/login"
-              sx={{ fontWeight: 600, borderRadius: 2 }}
+              sx={{ fontWeight: 600, borderRadius: 2, px: { xs: 1, sm: 2 }, fontSize: { xs: '0.75rem', sm: '0.875rem' } }}
             >
-              Vendor Login
+              <Box component="span" sx={{ display: { xs: 'none', sm: 'inline' } }}>Vendor Login</Box>
+              <Box component="span" sx={{ display: { xs: 'inline', sm: 'none' } }}>Vendor</Box>
             </BaseButton>
           </Box>
         </Toolbar>
@@ -93,12 +94,14 @@ const LandingPage = () => {
           <Typography variant="h6" sx={{ color: 'text.secondary', mb: 4 }}>
             Experience the best meals from top-rated restaurants across India, delivered fresh to your station.
           </Typography>
-          <BaseButton variant="contained" color="primary" size="large" component={Link} to="/register" sx={{ mr: 2, px: 4, py: 1.5, fontSize: '1.1rem' }}>
-            Get Started
-          </BaseButton>
-          <BaseButton variant="outlined" size="large" component={Link} to="/vendor/register" sx={{ px: 4, py: 1.5, fontSize: '1.1rem' }}>
-            Partner with us
-          </BaseButton>
+          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 2 }}>
+            <BaseButton variant="contained" color="primary" size="large" component={Link} to="/register" sx={{ px: 4, py: 1.5, fontSize: '1.1rem', width: { xs: '100%', sm: 'auto' } }}>
+              Get Started
+            </BaseButton>
+            <BaseButton variant="outlined" size="large" component={Link} to="/vendor/register" sx={{ px: 4, py: 1.5, fontSize: '1.1rem', width: { xs: '100%', sm: 'auto' } }}>
+              Partner with us
+            </BaseButton>
+          </Box>
         </Box>
         <Box component="img" src={landingImage} alt="Food Delivery" sx={{ width: '100%', maxWidth: 500, mixBlendMode: 'multiply' }} />
       </Box>

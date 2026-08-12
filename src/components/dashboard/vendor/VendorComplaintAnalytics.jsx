@@ -59,7 +59,7 @@ const VendorComplaintAnalytics = () => {
       </Card>
 
       <Grid container spacing={3}>
-        <Grid size={{ xs: 12, md: 6 }}>
+        <Grid item xs={12} md={6}>
           <ChartCard 
             title="Complaints by Status"
             isEmpty={statusData.length === 0}
@@ -85,7 +85,7 @@ const VendorComplaintAnalytics = () => {
             </PieChart>
           </ChartCard>
         </Grid>
-        <Grid size={{ xs: 12, md: 6 }}>
+        <Grid item xs={12} md={6}>
           <ChartCard 
             title="Complaints by Type"
             isEmpty={typeData.length === 0}

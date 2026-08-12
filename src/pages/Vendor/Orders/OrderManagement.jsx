@@ -179,7 +179,7 @@ const OrderManagement = () => {
 
   return (
     <Box sx={{ p: 3 }}>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 4 }}>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 2, mb: 4 }}>
         <Typography variant="h4" fontWeight={700}>
           Order Management
         </Typography>
@@ -190,7 +190,7 @@ const OrderManagement = () => {
             setStatusFilter(e.target.value);
             setPage(0);
           }}
-          sx={{ minWidth: 200, bgcolor: 'background.paper' }}
+          sx={{ width: { xs: '100%', sm: 200 }, bgcolor: 'background.paper' }}
         >
           <MenuItem value="ALL">All Orders</MenuItem>
           <MenuItem value="BOOKED">Booked</MenuItem>

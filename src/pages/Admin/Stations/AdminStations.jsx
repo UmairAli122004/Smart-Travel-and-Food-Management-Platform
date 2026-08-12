@@ -220,7 +220,7 @@ const AdminStations = () => {
               ),
             }
           }}
-          sx={{ minWidth: 350 }}
+          sx={{ width: { xs: '100%', sm: 350 } }}
         />
       </Box>
 

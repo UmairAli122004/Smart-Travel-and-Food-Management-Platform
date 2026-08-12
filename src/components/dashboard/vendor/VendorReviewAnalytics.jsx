@@ -25,7 +25,7 @@ const VendorReviewAnalytics = () => {
         Review Analytics
       </Typography>
       <Grid container spacing={3}>
-        <Grid size={{ xs: 12, md: 4 }}>
+        <Grid item xs={12} md={4}>
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, height: '100%' }}>
             <StatCard
               label="Average Rating"
@@ -41,7 +41,7 @@ const VendorReviewAnalytics = () => {
             />
           </Box>
         </Grid>
-        <Grid size={{ xs: 12, md: 8 }}>
+        <Grid item xs={12} md={8}>
           <ChartCard 
             title="Rating Distribution" 
             isEmpty={chartData.length === 0} 

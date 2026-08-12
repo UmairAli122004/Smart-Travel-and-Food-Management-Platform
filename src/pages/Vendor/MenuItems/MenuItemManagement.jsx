@@ -168,7 +168,7 @@ const MenuItemManagement = () => {
             const rawImageUrl = item.imageUrl ? item.imageUrl : 'https://placehold.co/400x200?text=No+Image';
             const imageUrl = optimizeCloudinaryUrl(rawImageUrl, { width: 400, height: 200, crop: 'fill' });
             return (
-            <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={item.id}>
+            <Grid item xs={12} sm={6} md={4} lg={3} key={item.id}>
               <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', borderRadius: 2, boxShadow: 3 }}>
                 <Box sx={{ p: 1.5, pb: 0 }}>
                   <Box sx={{ 

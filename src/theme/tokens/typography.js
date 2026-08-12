@@ -10,29 +10,29 @@ export const typography = {
   fontWeightExtraBold: 800,
   
   h1: {
-    fontSize: '3.5rem', // 56px
+    fontSize: 'clamp(2.5rem, 5vw + 1rem, 3.5rem)', // 40px to 56px
     fontWeight: 800,
     letterSpacing: '-1.5px',
     lineHeight: 1.2,
   },
   h2: {
-    fontSize: '2.5rem', // 40px
+    fontSize: 'clamp(2rem, 4vw + 1rem, 2.5rem)', // 32px to 40px
     fontWeight: 700,
     letterSpacing: '-0.5px',
     lineHeight: 1.3,
   },
   h3: {
-    fontSize: '2rem', // 32px
+    fontSize: 'clamp(1.75rem, 3vw + 1rem, 2rem)', // 28px to 32px
     fontWeight: 700,
     lineHeight: 1.3,
   },
   h4: {
-    fontSize: '1.5rem', // 24px
+    fontSize: 'clamp(1.25rem, 2vw + 1rem, 1.5rem)', // 20px to 24px
     fontWeight: 600,
     lineHeight: 1.4,
   },
   h5: {
-    fontSize: '1.25rem', // 20px
+    fontSize: 'clamp(1.1rem, 1.5vw + 1rem, 1.25rem)', // 18px to 20px
     fontWeight: 600,
     lineHeight: 1.4,
   },

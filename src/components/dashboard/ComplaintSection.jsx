@@ -69,7 +69,7 @@ const ComplaintSection = () => {
         </CardContent>
       </Card>
       <Grid container spacing={3}>
-        <Grid size={{ xs: 12, md: 6 }}>
+        <Grid item xs={12} md={6}>
           <Card>
             <CardContent>
               <Typography variant="subtitle1" fontWeight={600} mb={1}>
@@ -101,7 +101,7 @@ const ComplaintSection = () => {
             </CardContent>
           </Card>
         </Grid>
-        <Grid size={{ xs: 12, md: 6 }}>
+        <Grid item xs={12} md={6}>
           <Card>
             <CardContent>
               <Typography variant="subtitle1" fontWeight={600} mb={1}>

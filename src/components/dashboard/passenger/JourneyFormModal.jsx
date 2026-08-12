@@ -98,7 +98,7 @@ const JourneyFormModal = ({ open, onClose, onSubmit, initialData = null, isLoadi
           )}
           <Grid container spacing={2}>
             {isAdmin && (
-              <Grid size={{ xs: 12 }}>
+              <Grid item xs={12}>
                 <Controller
                   name="passengerId"
                   control={control}
@@ -119,12 +119,12 @@ const JourneyFormModal = ({ open, onClose, onSubmit, initialData = null, isLoadi
               </Grid>
             )}
             
-            <Grid size={{ xs: 12 }}>
+            <Grid item xs={12}>
               <Typography variant="subtitle2" color="text.secondary" sx={{ mt: 1, fontWeight: 'bold' }}>
                 Train Details
               </Typography>
             </Grid>
-            <Grid size={{ xs: 12, sm: 4 }}>
+            <Grid item xs={12} sm={4}>
               <Controller
                 name="pnrNumber"
                 control={control}
@@ -146,7 +146,7 @@ const JourneyFormModal = ({ open, onClose, onSubmit, initialData = null, isLoadi
                 )}
               />
             </Grid>
-            <Grid size={{ xs: 12, sm: 3 }}>
+            <Grid item xs={12} sm={3}>
               <Controller
                 name="trainNumber"
                 control={control}
@@ -164,7 +164,7 @@ const JourneyFormModal = ({ open, onClose, onSubmit, initialData = null, isLoadi
                 )}
               />
             </Grid>
-            <Grid size={{ xs: 12, sm: 5 }}>
+            <Grid item xs={12} sm={5}>
               <Controller
                 name="trainName"
                 control={control}
@@ -183,12 +183,12 @@ const JourneyFormModal = ({ open, onClose, onSubmit, initialData = null, isLoadi
               />
             </Grid>
 
-            <Grid size={{ xs: 12 }}>
+            <Grid item xs={12}>
               <Typography variant="subtitle2" color="text.secondary" sx={{ mt: 1, fontWeight: 'bold' }}>
                 Journey Details
               </Typography>
             </Grid>
-            <Grid size={{ xs: 12, sm: 6 }}>
+            <Grid item xs={12} sm={6}>
               <Controller
                 name="boardingStation"
                 control={control}
@@ -206,7 +206,7 @@ const JourneyFormModal = ({ open, onClose, onSubmit, initialData = null, isLoadi
                 )}
               />
             </Grid>
-            <Grid size={{ xs: 12, sm: 6 }}>
+            <Grid item xs={12} sm={6}>
               <Controller
                 name="destinationStation"
                 control={control}
@@ -224,7 +224,7 @@ const JourneyFormModal = ({ open, onClose, onSubmit, initialData = null, isLoadi
                 )}
               />
             </Grid>
-            <Grid size={{ xs: 12, sm: 4 }}>
+            <Grid item xs={12} sm={4}>
               <Controller
                 name="boardingDate"
                 control={control}
@@ -245,7 +245,7 @@ const JourneyFormModal = ({ open, onClose, onSubmit, initialData = null, isLoadi
                 )}
               />
             </Grid>
-            <Grid size={{ xs: 12, sm: 4 }}>
+            <Grid item xs={12} sm={4}>
               <Controller
                 name="boardingTime"
                 control={control}
@@ -265,7 +265,7 @@ const JourneyFormModal = ({ open, onClose, onSubmit, initialData = null, isLoadi
                 )}
               />
             </Grid>
-            <Grid size={{ xs: 12, sm: 4 }}>
+            <Grid item xs={12} sm={4}>
               <Controller
                 name="travelClass"
                 control={control}
@@ -291,12 +291,12 @@ const JourneyFormModal = ({ open, onClose, onSubmit, initialData = null, isLoadi
               />
             </Grid>
 
-            <Grid size={{ xs: 12 }}>
+            <Grid item xs={12}>
               <Typography variant="subtitle2" color="text.secondary" sx={{ mt: 1, fontWeight: 'bold' }}>
                 Seat Details
               </Typography>
             </Grid>
-            <Grid size={{ xs: 12, sm: 4 }}>
+            <Grid item xs={12} sm={4}>
               <Controller
                 name="coachNumber"
                 control={control}
@@ -315,7 +315,7 @@ const JourneyFormModal = ({ open, onClose, onSubmit, initialData = null, isLoadi
                 )}
               />
             </Grid>
-            <Grid size={{ xs: 12, sm: 4 }}>
+            <Grid item xs={12} sm={4}>
               <Controller
                 name="seatNumber"
                 control={control}

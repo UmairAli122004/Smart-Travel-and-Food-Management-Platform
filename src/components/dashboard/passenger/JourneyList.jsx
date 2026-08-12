@@ -40,7 +40,7 @@ const JourneyList = ({ journeys, totalPages, page, onPageChange, onEdit, onDelet
     <Box>
       <Grid container spacing={3}>
         {journeys.map((journey) => (
-          <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={journey.id}>
+          <Grid item xs={12} sm={6} md={4} lg={3} key={journey.id}>
             <Card elevation={2} sx={{ borderRadius: 3, height: '100%', display: 'flex', flexDirection: 'column', transition: '0.3s', '&:hover': { boxShadow: 6 } }}>
               <CardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 1.5 }}>

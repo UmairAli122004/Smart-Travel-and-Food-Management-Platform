@@ -57,7 +57,7 @@ const PassengerLayout = () => {
         component="main"
         sx={{ 
           flexGrow: 1, 
-          p: 3, 
+          p: { xs: 1, sm: 2, md: 3 }, 
           width: '100%', 
           backgroundColor: 'background.default', 
           position: 'relative',

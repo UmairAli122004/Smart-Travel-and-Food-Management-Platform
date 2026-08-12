@@ -9,17 +9,17 @@ const AdminLayout = () => {
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <Topbar title="Admin Portal" />
       
-      <Box
-        component="main"
-        sx={{ 
-          flexGrow: 1, 
-          p: 3, 
-          width: '100%', 
-          backgroundColor: 'background.default', 
-          maxWidth: '1400px',
-          margin: '0 auto' 
-        }}
-      >
+        <Box
+          component="main"
+          sx={{ 
+            flexGrow: 1, 
+            p: { xs: 1, sm: 2, md: 3 }, 
+            width: '100%', 
+            backgroundColor: 'background.default', 
+            maxWidth: '1400px',
+            margin: '0 auto' 
+          }}
+        >
         <Toolbar />
         <Outlet />
       </Box>

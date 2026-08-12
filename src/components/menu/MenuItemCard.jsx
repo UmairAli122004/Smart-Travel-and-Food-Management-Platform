@@ -100,11 +100,11 @@ const MenuItemCard = React.memo(({ item }) => {
       </Box>
 
       <CardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', p: 2 }}>
-        <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", mb: 1 }}>
-          <Typography variant="h6" fontWeight={600} sx={{ fontSize: '1.1rem', lineHeight: 1.2 }}>
+        <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", mb: 1, gap: 2 }}>
+          <Typography variant="h6" fontWeight={600} sx={{ fontSize: '1.1rem', lineHeight: 1.2, wordBreak: 'break-word' }}>
             {item.menuName}
           </Typography>
-          <Typography variant="h6" color="text.primary" fontWeight={600} sx={{ fontSize: '1rem' }}>
+          <Typography variant="h6" color="text.primary" fontWeight={600} sx={{ fontSize: '1rem', flexShrink: 0 }}>
             ₹{Number(item.price).toFixed(2)}
           </Typography>
         </Box>
@@ -133,10 +133,10 @@ const MenuItemCard = React.memo(({ item }) => {
           {item.description || 'Delicious meal prepared with fresh ingredients.'}
         </Typography>
 
-        <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mt: "auto" }}>
-          <Box sx={{ display: 'flex', alignItems: 'center', color: 'text.secondary' }}>
-            <StorefrontIcon sx={{ fontSize: 16, mr: 0.5 }} />
-            <Typography variant="body2" sx={{ fontSize: '0.85rem' }}>
+        <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mt: "auto", gap: 2 }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', color: 'text.secondary', minWidth: 0 }}>
+            <StorefrontIcon sx={{ fontSize: 16, mr: 0.5, flexShrink: 0 }} />
+            <Typography variant="body2" sx={{ fontSize: '0.85rem' }} noWrap>
               {item.restaurantName}
             </Typography>
           </Box>
@@ -149,7 +149,8 @@ const MenuItemCard = React.memo(({ item }) => {
               overflow: 'hidden',
               bgcolor: 'primary.light',
               color: 'primary.contrastText',
-              height: 30
+              height: 30,
+              flexShrink: 0
             }}>
               <Button 
                 size="small" 
@@ -179,7 +180,8 @@ const MenuItemCard = React.memo(({ item }) => {
               sx={{ 
                 textTransform: 'none', 
                 borderRadius: 2,
-                px: 2
+                px: 2,
+                flexShrink: 0
               }}
             >
               {item.available ? 'Add' : 'Sold Out'}
