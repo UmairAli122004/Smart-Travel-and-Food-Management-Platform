@@ -94,7 +94,7 @@ const ComplaintManagement = () => {
       ) : (
         <Box>
           <TableContainer component={Paper} sx={{ borderRadius: 2, boxShadow: 2 }}>
-            <Table>
+            <Table sx={{ minWidth: { xs: 500, sm: 650 } }}>
               <TableHead sx={{ backgroundColor: 'primary.main' }}>
                 <TableRow>
                   <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>ID</TableCell>

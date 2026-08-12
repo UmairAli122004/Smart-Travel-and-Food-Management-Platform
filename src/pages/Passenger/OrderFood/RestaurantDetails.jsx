@@ -152,7 +152,7 @@ const RestaurantDetails = () => {
         />
         <Box sx={{ p: 4 }}>
           <Grid container spacing={2}>
-            <Grid item xs={12} md={8}>
+            <Grid size={{ xs: 12, md: 8 }}>
               <Typography variant="h3" fontWeight="bold" gutterBottom>
                 {restaurant.restaurantName}
               </Typography>
@@ -203,7 +203,7 @@ const RestaurantDetails = () => {
                   {(menuItems[category.id] || []).map(item => {
                     const quantity = getCartQuantity(item.id);
                     return (
-                      <Grid item xs={12} sm={6} md={4} lg={3} key={item.id}>
+                      <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={item.id}>
                         <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', borderRadius: 2, boxShadow: 3 }}>
                           <Box sx={{ p: 1.5, pb: 0 }}>
                             <Box sx={{ 
@@ -322,7 +322,7 @@ const RestaurantDetails = () => {
           ) : (
             <Grid container spacing={3}>
               {reviews.map(review => (
-                <Grid item xs={12} key={review.id}>
+                <Grid size={{ xs: 12 }} key={review.id}>
                   <Card variant="outlined">
                     <CardContent>
                       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 1 }}>

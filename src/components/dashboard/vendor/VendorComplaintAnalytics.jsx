@@ -59,33 +59,35 @@ const VendorComplaintAnalytics = () => {
       </Card>
 
       <Grid container spacing={3}>
-        <Grid item xs={12} md={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <ChartCard 
             title="Complaints by Status"
             isEmpty={statusData.length === 0}
             emptyMessage="No status data available"
             emptyIcon="📝"
           >
-            <PieChart>
-              <Pie
-                data={statusData}
-                dataKey="value"
-                nameKey="name"
-                cx="50%"
-                cy="50%"
-                innerRadius={60}
-                outerRadius={100}
-              >
-                {statusData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={STATUS_COLORS[index % STATUS_COLORS.length]} />
-                ))}
-              </Pie>
-              <Tooltip />
-              <Legend />
-            </PieChart>
+            <ResponsiveContainer width="100%" height={300}>
+              <PieChart>
+                <Pie
+                  data={statusData}
+                  dataKey="value"
+                  nameKey="name"
+                  cx="50%"
+                  cy="50%"
+                  innerRadius={30}
+                  outerRadius={60}
+                >
+                  {statusData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={STATUS_COLORS[index % STATUS_COLORS.length]} />
+                  ))}
+                </Pie>
+                <Tooltip />
+                <Legend />
+              </PieChart>
+            </ResponsiveContainer>
           </ChartCard>
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <ChartCard 
             title="Complaints by Type"
             isEmpty={typeData.length === 0}
@@ -99,7 +101,7 @@ const VendorComplaintAnalytics = () => {
                 nameKey="name"
                 cx="50%"
                 cy="50%"
-                outerRadius={100}
+                outerRadius={60}
               >
                 {typeData.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={TYPE_COLORS[index % TYPE_COLORS.length]} />

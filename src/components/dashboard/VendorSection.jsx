@@ -40,11 +40,13 @@ const VendorSection = () => {
   if (!data) return null;
   return (
     <Box>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
+      <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, justifyContent: 'space-between', alignItems: { xs: 'flex-start', sm: 'center' }, gap: 2, mb: 2 }}>
         <Typography variant="h6" fontWeight={600}>
           Vendor Analytics
         </Typography>
-        <StatCard label="Active Vendors" value={data.activeVendorsCount || 0} color="#6a1b9a" />
+        <Box sx={{ width: { xs: '100%', sm: 220 } }}>
+          <StatCard label="Active Vendors" value={data.activeVendorsCount || 0} color="#6a1b9a" />
+        </Box>
       </Box>
       {chartData.length > 0 && (
         <Card sx={{ mb: 3 }}>
@@ -56,7 +58,7 @@ const VendorSection = () => {
               <ResponsiveContainer>
                 <BarChart data={chartData}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
-                  <XAxis dataKey="name" tick={{ fontSize: 11 }} angle={-20} textAnchor="end" height={50} />
+                  <XAxis dataKey="name" tick={{ fontSize: 11 }} angle={-45} textAnchor="end" height={80} interval={0} />
                   <YAxis tick={{ fontSize: 12 }} />
                   <Tooltip
                     formatter={(value, name) => {

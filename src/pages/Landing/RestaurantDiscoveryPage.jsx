@@ -73,7 +73,7 @@ const RestaurantDiscoveryPage = () => {
         ) : (
           <Grid container spacing={4}>
             {restaurants.map((restaurant) => (
-              <Grid item xs={12} md={6} key={restaurant.restaurantId}>
+              <Grid size={{ xs: 12, md: 6 }} key={restaurant.restaurantId}>
                 <Card sx={{ 
                   borderRadius: 4, 
                   overflow: 'hidden', 

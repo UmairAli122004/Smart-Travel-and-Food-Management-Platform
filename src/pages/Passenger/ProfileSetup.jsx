@@ -82,7 +82,7 @@ const ProfileSetup = () => {
 
         <form onSubmit={handleSubmit}>
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
+            <Grid size={{ xs: 12, sm: 6 }}>
               <TextField
                 select
                 fullWidth
@@ -98,7 +98,7 @@ const ProfileSetup = () => {
                 <MenuItem value="OTHER">Other</MenuItem>
               </TextField>
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid size={{ xs: 12, sm: 6 }}>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker
                   label="Date of Birth"
@@ -117,7 +117,7 @@ const ProfileSetup = () => {
                 />
               </LocalizationProvider>
             </Grid>
-            <Grid item xs={12}>
+            <Grid size={{ xs: 12 }}>
               <TextField
                 fullWidth
                 size="small"
@@ -130,7 +130,7 @@ const ProfileSetup = () => {
                 rows={2}
               />
             </Grid>
-            <Grid item xs={12} sm={4}>
+            <Grid size={{ xs: 12, sm: 4 }}>
               <TextField
                 fullWidth
                 size="small"
@@ -141,7 +141,7 @@ const ProfileSetup = () => {
                 required
               />
             </Grid>
-            <Grid item xs={12} sm={4}>
+            <Grid size={{ xs: 12, sm: 4 }}>
               <TextField
                 fullWidth
                 size="small"
@@ -152,7 +152,7 @@ const ProfileSetup = () => {
                 required
               />
             </Grid>
-            <Grid item xs={12} sm={4}>
+            <Grid size={{ xs: 12, sm: 4 }}>
               <TextField
                 fullWidth
                 size="small"
@@ -164,7 +164,7 @@ const ProfileSetup = () => {
                 inputProps={{ pattern: '^[1-9][0-9]{5}$', title: 'Enter a valid 6-digit pincode' }}
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid size={{ xs: 12 }}>
               <Button
                 type="submit"
                 variant="contained"

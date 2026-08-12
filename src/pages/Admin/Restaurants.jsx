@@ -129,7 +129,7 @@ const AdminRestaurants = () => {
             const imageUrl = optimizeCloudinaryUrl(rawImageUrl, { width: 400, height: 200, crop: 'fill' });
             
             return (
-              <Grid item xs={12} sm={6} md={4} lg={3} key={restaurant.id}>
+              <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={restaurant.id}>
                 <Card sx={{ 
                   display: 'flex', 
                   flexDirection: 'column', 

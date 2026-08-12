@@ -69,7 +69,7 @@ const ComplaintSection = () => {
         </CardContent>
       </Card>
       <Grid container spacing={3}>
-        <Grid item xs={12} md={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <Card>
             <CardContent>
               <Typography variant="subtitle1" fontWeight={600} mb={1}>
@@ -84,8 +84,8 @@ const ComplaintSection = () => {
                       nameKey="name"
                       cx="50%"
                       cy="50%"
-                      outerRadius={100}
-                      innerRadius={50}
+                      outerRadius={60}
+                      innerRadius={30}
                       label={renderLabel}
                       paddingAngle={2}
                     >
@@ -101,7 +101,7 @@ const ComplaintSection = () => {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <Card>
             <CardContent>
               <Typography variant="subtitle1" fontWeight={600} mb={1}>
@@ -116,8 +116,8 @@ const ComplaintSection = () => {
                       nameKey="name"
                       cx="50%"
                       cy="50%"
-                      outerRadius={100}
-                      innerRadius={50}
+                      outerRadius={60}
+                      innerRadius={30}
                       label={renderLabel}
                       paddingAngle={2}
                     >

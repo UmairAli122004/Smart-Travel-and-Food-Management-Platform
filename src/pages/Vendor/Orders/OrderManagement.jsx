@@ -20,8 +20,8 @@ const OrderRow = ({ order, onStatusChange }) => {
   return (
     <React.Fragment>
       <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
-        <TableCell>
-          <IconButton size="small" onClick={() => setOpen(!open)}>
+        <TableCell sx={{ whiteSpace: 'nowrap' }}>
+                    <IconButton size="small" onClick={() => setOpen(!open)}>
             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
           </IconButton>
         </TableCell>
@@ -84,7 +84,7 @@ const OrderRow = ({ order, onStatusChange }) => {
               <Typography variant="subtitle2" gutterBottom component="div">
                 Order Items
               </Typography>
-              <Table size="small" aria-label="purchases">
+              <Table size="small" aria-label="purchases" sx={{ minWidth: { xs: 500, sm: 650 } }}>
                 <TableHead>
                   <TableRow>
                     <TableCell>Order ID</TableCell>
@@ -212,7 +212,7 @@ const OrderManagement = () => {
       )}
 
       <TableContainer component={Paper} sx={{ borderRadius: 2, boxShadow: 2, mb: 3 }}>
-        <Table aria-label="collapsible table">
+        <Table aria-label="collapsible table" sx={{ minWidth: { xs: 500, sm: 650 } }}>
           <TableHead sx={{ bgcolor: 'grey.50' }}>
             <TableRow>
               <TableCell />

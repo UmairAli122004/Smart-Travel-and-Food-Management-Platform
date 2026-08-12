@@ -65,7 +65,7 @@ const DataTable = ({ data, columns, title }) => {
         />
       </Box>
       <TableContainer sx={{ maxHeight: 440 }}>
-        <Table stickyHeader aria-label="sticky table">
+        <Table stickyHeader aria-label="sticky table" sx={{ minWidth: { xs: 500, sm: 650 } }}>
           <TableHead>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>

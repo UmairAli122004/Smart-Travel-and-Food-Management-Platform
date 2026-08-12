@@ -59,7 +59,7 @@ const VendorRegisterPage = () => {
 
       <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate>
         <Grid container spacing={2}>
-          <Grid item xs={12} sm={6}>
+          <Grid size={{ xs: 12, sm: 6 }}>
             <BaseInput
               required
               fullWidth
@@ -71,7 +71,7 @@ const VendorRegisterPage = () => {
               disabled={isSubmitting || success}
             />
           </Grid>
-          <Grid item xs={12} sm={6}>
+          <Grid size={{ xs: 12, sm: 6 }}>
             <BaseInput
               required
               fullWidth
@@ -84,7 +84,7 @@ const VendorRegisterPage = () => {
               disabled={isSubmitting || success}
             />
           </Grid>
-          <Grid item xs={12} sm={6}>
+          <Grid size={{ xs: 12, sm: 6 }}>
             <BaseInput
               required
               fullWidth
@@ -98,7 +98,7 @@ const VendorRegisterPage = () => {
               disabled={isSubmitting || success}
             />
           </Grid>
-          <Grid item xs={12} sm={6}>
+          <Grid size={{ xs: 12, sm: 6 }}>
             <BaseInput
               required
               fullWidth
@@ -111,7 +111,7 @@ const VendorRegisterPage = () => {
               disabled={isSubmitting || success}
             />
           </Grid>
-          <Grid item xs={12} sm={6}>
+          <Grid size={{ xs: 12, sm: 6 }}>
             <BaseInput
               required
               fullWidth
@@ -123,7 +123,7 @@ const VendorRegisterPage = () => {
               disabled={isSubmitting || success}
             />
           </Grid>
-          <Grid item xs={12} sm={6}>
+          <Grid size={{ xs: 12, sm: 6 }}>
             <BaseInput
               required
               fullWidth
@@ -135,7 +135,7 @@ const VendorRegisterPage = () => {
               disabled={isSubmitting || success}
             />
           </Grid>
-          <Grid item xs={12}>
+          <Grid size={{ xs: 12 }}>
             <BaseInput
               required
               fullWidth
@@ -147,7 +147,7 @@ const VendorRegisterPage = () => {
               disabled={isSubmitting || success}
             />
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid size={{ xs: 12, sm: 4 }}>
             <BaseInput
               required
               fullWidth
@@ -159,7 +159,7 @@ const VendorRegisterPage = () => {
               disabled={isSubmitting || success}
             />
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid size={{ xs: 12, sm: 4 }}>
             <BaseInput
               required
               fullWidth
@@ -171,7 +171,7 @@ const VendorRegisterPage = () => {
               disabled={isSubmitting || success}
             />
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid size={{ xs: 12, sm: 4 }}>
             <BaseInput
               required
               fullWidth

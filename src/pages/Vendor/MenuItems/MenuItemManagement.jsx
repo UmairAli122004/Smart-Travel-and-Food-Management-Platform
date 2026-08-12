@@ -123,13 +123,28 @@ const MenuItemManagement = () => {
   return (
     <ErrorBoundary>
       <Box>
-      <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
-        <IconButton onClick={() => navigate(-1)} sx={{ mr: 2 }}>
-          <ArrowBackIcon />
-        </IconButton>
-        <Typography variant="h4" fontWeight={700} sx={{ flexGrow: 1 }}>
-          Manage Menu Items
-        </Typography>
+      <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, alignItems: { xs: 'flex-start', sm: 'center' }, gap: 2, mb: 3 }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', width: '100%' }}>
+          <IconButton onClick={() => navigate(-1)} sx={{ mr: 1, ml: -1 }}>
+            <ArrowBackIcon />
+          </IconButton>
+          <Typography variant="h5" fontWeight={700} sx={{ flexGrow: 1, fontSize: { xs: '1.25rem', sm: '1.5rem' } }}>
+            Menu Items
+          </Typography>
+          <Button 
+            variant="contained" 
+            startIcon={<AddIcon />}
+            onClick={(e) => {
+              e.currentTarget.blur();
+              setErrorMsg('');
+              setModalOpen(true);
+            }}
+            sx={{ borderRadius: 2, display: { xs: 'flex', sm: 'none' }, whiteSpace: 'nowrap' }}
+            size="small"
+          >
+            Add
+          </Button>
+        </Box>
         <Button 
           variant="contained" 
           startIcon={<AddIcon />}
@@ -138,7 +153,7 @@ const MenuItemManagement = () => {
             setErrorMsg('');
             setModalOpen(true);
           }}
-          sx={{ borderRadius: 2 }}
+          sx={{ borderRadius: 2, display: { xs: 'none', sm: 'flex' } }}
         >
           Add Menu Item
         </Button>
@@ -168,7 +183,7 @@ const MenuItemManagement = () => {
             const rawImageUrl = item.imageUrl ? item.imageUrl : 'https://placehold.co/400x200?text=No+Image';
             const imageUrl = optimizeCloudinaryUrl(rawImageUrl, { width: 400, height: 200, crop: 'fill' });
             return (
-            <Grid item xs={12} sm={6} md={4} lg={3} key={item.id}>
+            <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={item.id}>
               <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', borderRadius: 2, boxShadow: 3 }}>
                 <Box sx={{ p: 1.5, pb: 0 }}>
                   <Box sx={{ 

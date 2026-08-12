@@ -20,8 +20,8 @@ const Row = ({ review }) => {
   return (
     <React.Fragment>
       <TableRow hover sx={{ '& > *': { borderBottom: 'unset' } }}>
-        <TableCell>
-          <IconButton aria-label="expand row" size="small" onClick={() => setOpen(!open)}>
+        <TableCell sx={{ whiteSpace: 'nowrap' }}>
+                    <IconButton aria-label="expand row" size="small" onClick={() => setOpen(!open)}>
             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
           </IconButton>
         </TableCell>
@@ -97,7 +97,7 @@ const AdminReviewManagement = () => {
         </Paper>
       ) : (
         <TableContainer component={Paper} sx={{ borderRadius: 2, boxShadow: 2 }}>
-          <Table>
+          <Table sx={{ minWidth: { xs: 500, sm: 650 } }}>
             <TableHead sx={{ backgroundColor: 'primary.main' }}>
               <TableRow>
                 <TableCell sx={{ width: 50 }} />

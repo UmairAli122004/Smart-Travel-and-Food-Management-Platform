@@ -23,7 +23,7 @@ const PassengerSummaryCards = () => {
         My Overview
       </Typography>
       <Grid container spacing={3} mb={3}>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid size={{ xs: 12, sm: 6, md: 3 }}>
           <DashboardCard
             title="Total Orders"
             value={data.totalOrders}
@@ -31,7 +31,7 @@ const PassengerSummaryCards = () => {
             color="#ed6c02"
           />
         </Grid>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid size={{ xs: 12, sm: 6, md: 3 }}>
           <DashboardCard
             title="Total Spent"
             value={formattedSpent}
@@ -39,7 +39,7 @@ const PassengerSummaryCards = () => {
             color="#2e7d32"
           />
         </Grid>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid size={{ xs: 12, sm: 6, md: 3 }}>
           <DashboardCard
             title="Reviews Given"
             value={data.totalReviewsGiven}
@@ -47,7 +47,7 @@ const PassengerSummaryCards = () => {
             color="#f9a825"
           />
         </Grid>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid size={{ xs: 12, sm: 6, md: 3 }}>
           <DashboardCard
             title="Complaints Filed"
             value={data.totalComplaintsFiled}
@@ -58,28 +58,28 @@ const PassengerSummaryCards = () => {
       </Grid>
       <Divider sx={{ mb: 2 }} />
       <Grid container spacing={2}>
-        <Grid item xs={6} sm={4} md={3}>
+        <Grid size={{ xs: 6, sm: 4, md: 3 }}>
           <StatCard
             label="Completed Orders"
             value={data.completedOrders}
             color="#2e7d32"
           />
         </Grid>
-        <Grid item xs={6} sm={4} md={3}>
+        <Grid size={{ xs: 6, sm: 4, md: 3 }}>
           <StatCard
             label="Pending Orders"
             value={data.pendingOrders}
             color="#ed6c02"
           />
         </Grid>
-        <Grid item xs={6} sm={4} md={3}>
+        <Grid size={{ xs: 6, sm: 4, md: 3 }}>
           <StatCard
             label="Cancelled Orders"
             value={data.cancelledOrders}
             color="#d32f2f"
           />
         </Grid>
-        <Grid item xs={6} sm={4} md={3}>
+        <Grid size={{ xs: 6, sm: 4, md: 3 }}>
           <StatCard
             label="Open Complaints"
             value={data.openComplaints}

@@ -86,13 +86,28 @@ const CategoryManagement = () => {
   }
   return (
     <Box>
-      <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
-        <IconButton onClick={() => navigate('/vendor/restaurants')} sx={{ mr: 2 }}>
-          <ArrowBackIcon />
-        </IconButton>
-        <Typography variant="h4" fontWeight={700} sx={{ flexGrow: 1 }}>
-          Restaurant Menu (Categories)
-        </Typography>
+      <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, alignItems: { xs: 'flex-start', sm: 'center' }, gap: 2, mb: 3 }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', width: '100%' }}>
+          <IconButton onClick={() => navigate('/vendor/restaurants')} sx={{ mr: 1, ml: -1 }}>
+            <ArrowBackIcon />
+          </IconButton>
+          <Typography variant="h5" fontWeight={700} sx={{ flexGrow: 1, fontSize: { xs: '1.25rem', sm: '1.5rem' } }}>
+            Menu Categories
+          </Typography>
+          <Button
+            variant="contained"
+            startIcon={<AddIcon />}
+            onClick={(e) => {
+              e.currentTarget.blur();
+              setErrorMsg('');
+              setModalOpen(true);
+            }}
+            sx={{ borderRadius: 2, display: { xs: 'flex', sm: 'none' }, whiteSpace: 'nowrap' }}
+            size="small"
+          >
+            Add
+          </Button>
+        </Box>
         <Button
           variant="contained"
           startIcon={<AddIcon />}
@@ -101,7 +116,7 @@ const CategoryManagement = () => {
             setErrorMsg('');
             setModalOpen(true);
           }}
-          sx={{ borderRadius: 2 }}
+          sx={{ borderRadius: 2, display: { xs: 'none', sm: 'flex' } }}
         >
           Add Menu Category
         </Button>
@@ -127,7 +142,7 @@ const CategoryManagement = () => {
         </Paper>
       ) : (
         <TableContainer component={Paper} sx={{ borderRadius: 2, boxShadow: 2 }}>
-          <Table>
+          <Table sx={{ minWidth: { xs: 500, sm: 650 } }}>
             <TableHead sx={{ backgroundColor: 'primary.main' }}>
               <TableRow>
                 <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>ID</TableCell>
@@ -142,7 +157,7 @@ const CategoryManagement = () => {
                   <TableCell>{category.id}</TableCell>
                   <TableCell fontWeight="medium">{category.categoryName}</TableCell>
                   <TableCell>{category.description || '-'}</TableCell>
-                  <TableCell align="right">
+                  <TableCell align="right" sx={{ whiteSpace: 'nowrap' }}>
                     <IconButton color="info" onClick={() => navigate(`/vendor/categories/${category.id}/menu-items`)} title="Manage Menu Items">
                       <RestaurantMenuIcon />
                     </IconButton>

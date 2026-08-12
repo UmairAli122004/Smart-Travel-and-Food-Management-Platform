@@ -52,7 +52,7 @@ const AdminCategoryManagement = () => {
         </Paper>
       ) : (
         <TableContainer component={Paper} sx={{ borderRadius: 2, boxShadow: 2 }}>
-          <Table>
+          <Table sx={{ minWidth: { xs: 500, sm: 650 } }}>
             <TableHead sx={{ backgroundColor: 'primary.main' }}>
               <TableRow>
                 <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>ID</TableCell>
@@ -67,7 +67,7 @@ const AdminCategoryManagement = () => {
                   <TableCell>{category.id}</TableCell>
                   <TableCell fontWeight="medium">{category.categoryName}</TableCell>
                   <TableCell>{category.description || '-'}</TableCell>
-                  <TableCell align="right">
+                  <TableCell align="right" sx={{ whiteSpace: 'nowrap' }}>
                     <IconButton color="info" onClick={() => navigate(`/admin/restaurants/${restaurantId}/categories/${category.id}/menu-items`)} title="View Menu Items">
                       <RestaurantMenuIcon />
                     </IconButton>

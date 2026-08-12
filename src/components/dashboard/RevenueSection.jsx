@@ -41,7 +41,7 @@ const RevenueSection = () => {
       <Typography variant="h6" fontWeight={600} mb={3}>
         Revenue Analytics
       </Typography>
-      <Box sx={{ display: 'flex', gap: 2, mb: 4, flexWrap: 'wrap', alignItems: 'center' }}>
+      <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 2, mb: 4, flexWrap: 'wrap', alignItems: { xs: 'stretch', sm: 'center' } }}>
         <TextField
           type="date"
           label="Start Date"
@@ -49,6 +49,7 @@ const RevenueSection = () => {
           onChange={(e) => setStartDate(e.target.value)}
           size="small"
           slotProps={{ inputLabel: { shrink: true } }}
+          sx={{ flex: { xs: 1, sm: '0 1 auto' } }}
         />
         <TextField
           type="date"
@@ -57,14 +58,15 @@ const RevenueSection = () => {
           onChange={(e) => setEndDate(e.target.value)}
           size="small"
           slotProps={{ inputLabel: { shrink: true } }}
+          sx={{ flex: { xs: 1, sm: '0 1 auto' } }}
         />
-        <Button variant="contained" size="medium" onClick={handleApply}>
+        <Button variant="contained" size="medium" onClick={handleApply} sx={{ width: { xs: '100%', sm: 'auto' } }}>
           Apply
         </Button>
       </Box>
       {data && (
         <Grid container spacing={3} sx={{ mb: 5 }}>
-          <Grid item xs={12} sm={6}>
+          <Grid size={{ xs: 12, sm: 6 }}>
             <DashboardCard
               title={data.totalRevenueCard?.title || 'Total Revenue'}
               value={data.totalRevenueCard?.value || '₹0'}
@@ -73,7 +75,7 @@ const RevenueSection = () => {
               color="#2e7d32"
             />
           </Grid>
-          <Grid item xs={12} sm={6}>
+          <Grid size={{ xs: 12, sm: 6 }}>
             <DashboardCard
               title={data.averageOrderValueCard?.title || 'Avg Order Value'}
               value={data.averageOrderValueCard?.value || '₹0'}
