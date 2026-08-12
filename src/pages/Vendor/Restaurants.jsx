@@ -66,7 +66,7 @@ const VendorRestaurants = () => {
         <Button 
           variant="contained" 
           startIcon={<AddIcon />}
-          onClick={() => setModalOpen(true)}
+          onClick={(e) => { e.currentTarget.blur(); setModalOpen(true); }}
           sx={{ borderRadius: 2 }}
         >
           Add Restaurant
@@ -81,7 +81,7 @@ const VendorRestaurants = () => {
           <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
             Create your first restaurant to start managing menus and receiving orders.
           </Typography>
-          <Button variant="contained" size="large" startIcon={<AddIcon />} onClick={() => setModalOpen(true)}>
+          <Button variant="contained" size="large" startIcon={<AddIcon />} onClick={(e) => { e.currentTarget.blur(); setModalOpen(true); }}>
             Create Restaurant
           </Button>
         </Box>
@@ -192,7 +192,7 @@ const VendorRestaurants = () => {
                     <IconButton 
                       color="primary" 
                       size="small" 
-                      onClick={() => setEditingRestaurant(restaurant)}
+                      onClick={(e) => { e.currentTarget.blur(); setEditingRestaurant(restaurant); }}
                       aria-label="edit restaurant"
                       sx={{ backgroundColor: 'rgba(25, 118, 210, 0.08)', '&:hover': { backgroundColor: 'rgba(25, 118, 210, 0.15)' } }}
                     >
@@ -201,7 +201,8 @@ const VendorRestaurants = () => {
                     <IconButton 
                       color="error" 
                       size="small" 
-                      onClick={() => {
+                      onClick={(e) => {
+                        e.currentTarget.blur();
                         setDeleteError('');
                         setRestaurantToDelete(restaurant);
                       }}

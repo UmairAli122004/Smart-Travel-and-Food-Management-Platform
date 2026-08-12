@@ -204,7 +204,7 @@ const JourneySelector = () => {
 
           <Button
             variant="contained"
-            onClick={() => setIsFormOpen(true)}
+            onClick={(e) => { e.currentTarget.blur(); setIsFormOpen(true); }}
           >
             Create Journey
           </Button>

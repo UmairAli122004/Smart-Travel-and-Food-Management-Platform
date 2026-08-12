@@ -216,7 +216,7 @@ const RestaurantDetails = () => {
                               backgroundColor: '#000'
                             }}>
                               <img
-                                src={item.imageUrl ? item.imageUrl : 'https://via.placeholder.com/400x200?text=No+Image'}
+                                src={item.imageUrl ? item.imageUrl : 'https://placehold.co/400x200?text=No+Image'}
                                 alt=""
                                 loading="lazy"
                                 style={{ 
@@ -232,7 +232,7 @@ const RestaurantDetails = () => {
                                 }}
                               />
                               <img
-                                src={item.imageUrl ? item.imageUrl : 'https://via.placeholder.com/400x200?text=No+Image'}
+                                src={item.imageUrl ? item.imageUrl : 'https://placehold.co/400x200?text=No+Image'}
                                 alt={item.menuName}
                                 loading="lazy"
                                 style={{ 

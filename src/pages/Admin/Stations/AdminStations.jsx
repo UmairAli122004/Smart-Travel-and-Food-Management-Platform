@@ -197,7 +197,7 @@ const AdminStations = () => {
         <Button
           variant="contained"
           startIcon={<AddIcon />}
-          onClick={() => handleOpenDialog()}
+          onClick={(e) => { e.currentTarget.blur(); handleOpenDialog(); }}
         >
           Add New Station
         </Button>
@@ -262,7 +262,7 @@ const AdminStations = () => {
                   <TableCell align="right">
                     <IconButton
                       color="primary"
-                      onClick={() => handleOpenDialog(station)}
+                      onClick={(e) => { e.currentTarget.blur(); handleOpenDialog(station); }}
                       size="small"
                       sx={{ mr: 1 }}
                     >
@@ -270,7 +270,7 @@ const AdminStations = () => {
                     </IconButton>
                     <IconButton
                       color="error"
-                      onClick={() => handleOpenDeleteDialog(station)}
+                      onClick={(e) => { e.currentTarget.blur(); handleOpenDeleteDialog(station); }}
                       size="small"
                     >
                       <DeleteIcon fontSize="small" />

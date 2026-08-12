@@ -122,7 +122,7 @@ const ComplaintManagement = () => {
                       />
                     </TableCell>
                     <TableCell>
-                      <Button variant="outlined" size="small" onClick={() => handleOpenResolve(complaint)}>
+                      <Button variant="outlined" size="small" onClick={(e) => { e.currentTarget.blur(); handleOpenResolve(complaint); }}>
                         Manage
                       </Button>
                     </TableCell>

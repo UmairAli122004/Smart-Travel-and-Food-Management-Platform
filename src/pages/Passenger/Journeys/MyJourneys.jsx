@@ -113,7 +113,7 @@ const MyJourneys = () => {
             variant="contained" 
             color="primary" 
             startIcon={<AddIcon />} 
-            onClick={() => handleOpenForm()}
+            onClick={(e) => { e.currentTarget.blur(); handleOpenForm(); }}
           >
             Create Journey
           </Button>

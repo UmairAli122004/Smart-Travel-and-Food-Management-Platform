@@ -27,7 +27,7 @@ const GlobalCart = () => {
             right: { xs: 32, md: 32 }, 
             zIndex: 1000 
           }}
-          onClick={() => setCartOpen(true)}
+          onClick={(e) => { e.currentTarget.blur(); setCartOpen(true); }}
         >
           <Badge badgeContent={itemCount} color="error">
             <ShoppingCartIcon />

@@ -58,7 +58,7 @@ const ComplaintList = () => {
         <Button 
           variant="outlined" 
           size="small"
-          onClick={() => setSelectedComplaint(row.original)}
+          onClick={(e) => { e.currentTarget.blur(); setSelectedComplaint(row.original); }}
         >
           View Details
         </Button>

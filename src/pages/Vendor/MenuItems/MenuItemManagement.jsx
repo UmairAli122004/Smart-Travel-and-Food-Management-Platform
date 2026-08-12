@@ -133,7 +133,8 @@ const MenuItemManagement = () => {
         <Button 
           variant="contained" 
           startIcon={<AddIcon />}
-          onClick={() => {
+          onClick={(e) => {
+            e.currentTarget.blur();
             setErrorMsg('');
             setModalOpen(true);
           }}
@@ -151,7 +152,8 @@ const MenuItemManagement = () => {
           <Button 
             variant="contained" 
             startIcon={<AddIcon />}
-            onClick={() => {
+            onClick={(e) => {
+              e.currentTarget.blur();
               setErrorMsg('');
               setModalOpen(true);
             }}
@@ -251,10 +253,10 @@ const MenuItemManagement = () => {
                       label="Available"
                     />
                     <Box>
-                      <IconButton color="primary" onClick={() => { setErrorMsg(''); setEditingItem(item); }}>
+                      <IconButton color="primary" onClick={(e) => { e.currentTarget.blur(); setErrorMsg(''); setEditingItem(item); }}>
                         <EditIcon />
                       </IconButton>
-                      <IconButton color="error" onClick={() => { setErrorMsg(''); setItemToDelete(item); }}>
+                      <IconButton color="error" onClick={(e) => { e.currentTarget.blur(); setErrorMsg(''); setItemToDelete(item); }}>
                         <DeleteIcon />
                       </IconButton>
                     </Box>

@@ -12,7 +12,7 @@ import { CATEGORY_API } from '../../../constants/apiEndpoints';
 import CategoryModal from '../../../components/dashboard/vendor/CategoryModal';
 const fetchCategories = async (restaurantId) => {
   const response = await api.get(CATEGORY_API.BY_RESTAURANT(restaurantId));
-  return response.data.data; 
+  return response.data.data;
 };
 const CategoryManagement = () => {
   const { restaurantId } = useParams();
@@ -93,10 +93,11 @@ const CategoryManagement = () => {
         <Typography variant="h4" fontWeight={700} sx={{ flexGrow: 1 }}>
           Restaurant Menu (Categories)
         </Typography>
-        <Button 
-          variant="contained" 
+        <Button
+          variant="contained"
           startIcon={<AddIcon />}
-          onClick={() => {
+          onClick={(e) => {
+            e.currentTarget.blur();
             setErrorMsg('');
             setModalOpen(true);
           }}
@@ -111,10 +112,11 @@ const CategoryManagement = () => {
       {categories.length === 0 && !isError ? (
         <Paper sx={{ p: 4, textAlign: 'center', borderRadius: 2, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <Typography variant="h6" color="text.secondary">Menu are not present. Please add menu.</Typography>
-          <Button 
-            variant="contained" 
+          <Button
+            variant="contained"
             startIcon={<AddIcon />}
-            onClick={() => {
+            onClick={(e) => {
+              e.currentTarget.blur();
               setErrorMsg('');
               setModalOpen(true);
             }}
@@ -144,10 +146,10 @@ const CategoryManagement = () => {
                     <IconButton color="info" onClick={() => navigate(`/vendor/categories/${category.id}/menu-items`)} title="Manage Menu Items">
                       <RestaurantMenuIcon />
                     </IconButton>
-                    <IconButton color="primary" onClick={() => { setErrorMsg(''); setEditingCategory(category); }} title="Edit Category">
+                    <IconButton color="primary" onClick={(e) => { e.currentTarget.blur(); setErrorMsg(''); setEditingCategory(category); }} title="Edit Category">
                       <EditIcon />
                     </IconButton>
-                    <IconButton color="error" onClick={() => { setErrorMsg(''); setCategoryToDelete(category); }} title="Delete Category">
+                    <IconButton color="error" onClick={(e) => { e.currentTarget.blur(); setErrorMsg(''); setCategoryToDelete(category); }} title="Delete Category">
                       <DeleteIcon />
                     </IconButton>
                   </TableCell>
@@ -157,23 +159,23 @@ const CategoryManagement = () => {
           </Table>
         </TableContainer>
       )}
-      {}
-      <CategoryModal 
-        open={modalOpen} 
-        onClose={() => setModalOpen(false)} 
+      { }
+      <CategoryModal
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
         onSubmit={handleCreateSubmit}
         isPending={createMutation.isPending}
         error={errorMsg}
       />
-      <CategoryModal 
-        open={Boolean(editingCategory)} 
-        onClose={() => setEditingCategory(null)} 
+      <CategoryModal
+        open={Boolean(editingCategory)}
+        onClose={() => setEditingCategory(null)}
         onSubmit={handleUpdateSubmit}
         isPending={updateMutation.isPending}
         error={errorMsg}
         initialData={editingCategory}
       />
-      {}
+      { }
       <Dialog disableEnforceFocus disableRestoreFocus open={Boolean(categoryToDelete)} onClose={() => setCategoryToDelete(null)}>
         <DialogTitle>Confirm Delete</DialogTitle>
         <DialogContent>
@@ -184,9 +186,9 @@ const CategoryManagement = () => {
         </DialogContent>
         <DialogActions>
           <Button onClick={() => setCategoryToDelete(null)}>Cancel</Button>
-          <Button 
-            color="error" 
-            variant="contained" 
+          <Button
+            color="error"
+            variant="contained"
             onClick={() => deleteMutation.mutate(categoryToDelete.id)}
             disabled={deleteMutation.isPending}
           >

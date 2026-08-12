@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import { 
-  Box, 
-  Typography, 
-  Paper, 
-  Table, 
-  TableBody, 
-  TableCell, 
-  TableContainer, 
-  TableHead, 
-  TableRow, 
-  Chip, 
-  Pagination, 
+import {
+  Box,
+  Typography,
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Chip,
+  Pagination,
   Alert,
   Button,
   Dialog,
@@ -28,7 +28,7 @@ const ComplaintStatusOptions = ['OPEN', 'IN_PROGRESS', 'RESOLVED', 'CLOSED'];
 const ComplaintManagement = () => {
   const [page, setPage] = useState(0);
   const size = 10;
-  
+
   const { data: complaintsData, isLoading, isError, refetch } = useVendorComplaints(page, size);
   const resolveMutation = useResolveVendorComplaint();
 
@@ -61,7 +61,7 @@ const ComplaintManagement = () => {
   };
 
   const getStatusColor = (status) => {
-    switch(status) {
+    switch (status) {
       case 'OPEN': return 'error';
       case 'IN_PROGRESS': return 'warning';
       case 'RESOLVED': return 'success';
@@ -119,14 +119,14 @@ const ComplaintManagement = () => {
                     <TableCell>{complaint.restaurantName}</TableCell>
                     <TableCell>{complaint.title}</TableCell>
                     <TableCell>
-                      <Chip 
-                        label={complaint.status?.replace('_', ' ')} 
-                        color={getStatusColor(complaint.status)} 
-                        size="small" 
+                      <Chip
+                        label={complaint.status?.replace('_', ' ')}
+                        color={getStatusColor(complaint.status)}
+                        size="small"
                       />
                     </TableCell>
                     <TableCell>
-                      <Button variant="outlined" size="small" onClick={() => handleOpenResolve(complaint)}>
+                      <Button variant="outlined" size="small" onClick={(e) => { e.currentTarget.blur(); handleOpenResolve(complaint); }}>
                         Manage
                       </Button>
                     </TableCell>
@@ -179,7 +179,7 @@ const ComplaintManagement = () => {
                 </Box>
               ) : (
                 <Alert severity="info" sx={{ mt: 2 }}>
-                  Vendors can only resolve FOOD_QUALITY and RESTAURANT type complaints. 
+                  Vendors can only resolve FOOD_QUALITY and RESTAURANT type complaints.
                   This is a {selectedComplaint.complaintType} complaint and must be resolved by an Admin.
                 </Alert>
               )}
@@ -187,9 +187,9 @@ const ComplaintManagement = () => {
             <DialogActions>
               <Button onClick={handleCloseResolve}>Cancel</Button>
               {(selectedComplaint.complaintType === 'FOOD_QUALITY' || selectedComplaint.complaintType === 'RESTAURANT') && (
-                <Button 
-                  onClick={handleResolveSubmit} 
-                  variant="contained" 
+                <Button
+                  onClick={handleResolveSubmit}
+                  variant="contained"
                   disabled={resolveMutation.isPending}
                 >
                   Save
