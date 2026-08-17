@@ -199,7 +199,7 @@ const PlaceOrderPage = () => {
             <Typography variant="h6" fontWeight="700" sx={{ mb: 2 }}>Passenger Details</Typography>
             <Divider sx={{ mb: 2 }} />
             <Typography variant="body1"><strong>Name:</strong> {user?.username}</Typography>
-            <Typography variant="body1"><strong>Phone:</strong> {user?.phone}</Typography>
+            <Typography variant="body1"><strong>Phone:</strong> {user?.phone || 'Not Provided'}</Typography>
           </Card>
 
           <Card sx={{ p: 3, borderRadius: 3, boxShadow: '0 4px 12px rgba(0,0,0,0.05)' }}>
@@ -216,7 +216,7 @@ const PlaceOrderPage = () => {
           <Card sx={{ p: 3, borderRadius: 3, boxShadow: '0 4px 12px rgba(0,0,0,0.05)' }}>
             <Typography variant="h6" fontWeight="700" sx={{ mb: 2 }}>Delivery Details</Typography>
             <Divider sx={{ mb: 2 }} />
-            <Typography variant="body1"><strong>Station:</strong> {deliveryStationDetails?.name} ({deliveryStationDetails?.code})</Typography>
+            <Typography variant="body1"><strong>Station:</strong> {deliveryStationDetails?.stationName} {deliveryStationDetails?.stationCode ? `(${deliveryStationDetails?.stationCode})` : ''}</Typography>
             <Typography variant="body1"><strong>Payment Method:</strong> Cash on Delivery (COD)</Typography>
           </Card>
           

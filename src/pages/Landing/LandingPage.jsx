@@ -9,6 +9,7 @@ import landingImage from '../../assets/landingimage.png';
 import Loading from '../../components/common/Loading';
 import Footer from '../../components/layout/Footer';
 import FoodDiscoverySection from '../../components/Landing/FoodDiscovery/FoodDiscoverySection';
+import TopMenuItemsSection from '../../components/Landing/FoodDiscovery/TopMenuItemsSection';
 
 const faqs = [
   {
@@ -108,6 +109,9 @@ const LandingPage = () => {
 
       {/* Food Discovery Section */}
       <FoodDiscoverySection />
+
+      {/* Top Menu Items Section */}
+      <TopMenuItemsSection />
 
       {/* FAQ Section */}
       <Container maxWidth="md" sx={{ py: 8 }}>
