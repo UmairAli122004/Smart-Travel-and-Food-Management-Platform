@@ -99,7 +99,8 @@ const CartDrawer = ({ open, onClose }) => {
           items: items
         };
 
-        const idempotencyKey = crypto.randomUUID();
+        // const idempotencyKey = crypto.randomUUID();
+        const idempotencyKey = `${Date.now()}-${Math.random().toString(36).substring(2, 15)}`;
         const response = await axiosInstance.post(ORDER_API.CREATE, orderPayload, {
           headers: {
             'Idempotency-Key': idempotencyKey
