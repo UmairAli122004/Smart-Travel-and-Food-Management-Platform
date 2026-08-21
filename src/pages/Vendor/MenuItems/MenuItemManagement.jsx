@@ -199,6 +199,7 @@ const MenuItemManagement = () => {
                       src={imageUrl}
                       alt=""
                       loading="lazy"
+                      onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/400x200?text=No+Image'; }}
                       style={{ 
                         position: 'absolute',
                         top: 0,
@@ -215,6 +216,7 @@ const MenuItemManagement = () => {
                       src={imageUrl}
                       alt={item.menuName}
                       loading="lazy"
+                      onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/400x200?text=No+Image'; }}
                       style={{ 
                         position: 'absolute',
                         top: 0,

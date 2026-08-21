@@ -25,7 +25,7 @@ api.interceptors.response.use(
       localStorage.removeItem('userId');
       if (error.config && error.config.url && error.config.url.includes('/login')) {
         // Allow the component to handle the login failure and display the error message
-      } else {
+      } else if (window.location.pathname !== '/') {
         window.location.href = '/';
       }
     }

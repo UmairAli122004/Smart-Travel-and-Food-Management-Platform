@@ -26,7 +26,7 @@ const OAuth2RedirectHandler = () => {
                 // Decode the JWT token to extract user info
                 const payloadBase64 = token.split('.')[1];
                 const decodedPayload = JSON.parse(atob(payloadBase64));
-                
+
                 const authData = {
                     token: token,
                     email: decodedPayload.sub,
@@ -35,7 +35,7 @@ const OAuth2RedirectHandler = () => {
                     username: decodedPayload.username || '',
                     profileComplete: profileComplete
                 };
-                
+
                 login(authData);
             } catch (err) {
                 console.error('Error decoding OAuth2 token', err);
